@@ -9,7 +9,7 @@ import tensorflow as tf
 def train(train_data, train_targs, val_data, val_targs):
 
   # STEP 1: Alert
-  print "STARTING TRAINING; shape" + str(inputs.shape)
+  print "STARTING TRAINING; shape" + str(train_data.shape)
 
   # STEP 2: Create the model
   l0_input = tf.keras.layers.Input(shape=train_data[0].shape)
@@ -39,7 +39,7 @@ def train(train_data, train_targs, val_data, val_targs):
                                                             save_freq=1)
 
   # do training for the specified number of epochs and with the given batch size
-  model.fit(train_data, train_targs, epochs=5, batch_size=4,
+  model.fit(train_data, train_targs, epochs=3, batch_size=4,
             validation_data=(val_data, val_targs),
             callbacks=[tbCallBack, checkpointCallBack])
 
@@ -58,7 +58,8 @@ def evaluate(model, test_data, test_targs):
     n_total += 1
 
   print "\n\nRESULTS: %d correct out of %d total (%2.3f)" % (n_correct, n_total, 100*n_correct/float(n_total))
-  print "  Random guessing gives %2.3f" % (((n_total - sum(predicted_targs))) / float(n_total)*100)
+  print "  Skew: %2.3f%% are 0" % ((1 - sum(test_targs) / n_total) * 100)
+  return predicted_targs
 
 
 def load(file):
