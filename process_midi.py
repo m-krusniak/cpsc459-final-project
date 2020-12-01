@@ -10,7 +10,7 @@ def examine_song(filename):
   for msg in mido.MidiFile(filename):
     if not msg.is_meta: print ("[%d] " % msg.channel) + str(msg)
 
-def load_song(filename, drum=35, memory_length=8, ticks_per_beat=4):
+def load_song(filename, drum=36, memory_length=8, ticks_per_beat=4):
   t = 0
   r = 0
   data = []
@@ -23,14 +23,14 @@ def load_song(filename, drum=35, memory_length=8, ticks_per_beat=4):
   mid = mido.MidiFile(filename)
   for msg in mid:
     if msg.type == 'set_tempo':
-      bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second 
+      bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second
       model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
 
     t += msg.time
     if msg.type == 'note_on' and msg.note == drum and msg.velocity > 1.0:
       d = int((msg.time+r) * bps * ticks_per_beat + 0.5) # nice trick: int(x+0.5) rounds x to the nearest whole
       if d < 1: r += msg.time
-      else: 
+      else:
         r = 0
         for i in range(0, d):
           data += [model_input[:-2]]
@@ -60,7 +60,7 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
     mid = mido.MidiFile(dirname + str(file))
     for msg in mid:
       if msg.type == 'set_tempo':
-        bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second 
+        bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second
         model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
 
       if msg.type == 'time_signature':
@@ -73,7 +73,7 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
       if msg.type == 'note_on' and msg.note == drum and msg.velocity > 1.0:
         d = int((msg.time+r) * bps * ticks_per_beat + 0.5) # nice trick: int(x+0.5) rounds x to the nearest whole
         if d < 1: r += msg.time
-        else: 
+        else:
           r = 0
           for i in range(0, d):
             data += [model_input[:-2]]
@@ -81,10 +81,11 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
             ndata += 1
             model_input[0] = 0
             model_input = np.roll(model_input, -1)
+            print file
           model_input[len(model_input)-1] = 1
-      else: 
+      else:
         r += msg.time
-    if ndata > 50000: break 
+    if ndata > 50000: break
 
   print "LOADED %d SONGS (%d examples)" % (nsongs, ndata)
   return data, targ
@@ -96,9 +97,9 @@ def separate_data(data, targ):
   ndata = len(inputs)
 
   # Here's an issue: we probably shouldn't take exactly every 2 in 10 elements because there could be a pattern across 10
-  # Really we should randomize, but I don't know off the top of my head how to simultaneously randomize two lists in python - 
+  # Really we should randomize, but I don't know off the top of my head how to simultaneously randomize two lists in python -
   # probably zip or something, but a simpler workaround is just to choose a number that has no musical significance - e.g,
-  # a small prime. 
+  # a small prime.
   train_data = np.array([e for i, e in enumerate(inputs) if i % 19 < 12])
   train_targs = np.array([e for i, e in enumerate(targs) if i % 19 < 12])
   val_data = np.array([e for i, e in enumerate(inputs) if i % 19 >= 12 and i % 19 < 17])
