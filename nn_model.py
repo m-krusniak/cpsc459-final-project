@@ -52,13 +52,27 @@ def evaluate(model, test_data, test_targs):
 
   n_correct = 0
   n_total = 0
+  tp = 0
+  fn = 0
+  fp = 0
   for p in zip(test_targs, predicted_targs): 
     if p[0] == p[1]:
       n_correct += 1
+    if p[0] == 1 and p[1] == 1:
+      tp += 1
+    if p[0] == 1 and p[1] == 0:
+      fn += 1
+    if p[0] == 0 and p[1] == 1:
+      fp += 1
     n_total += 1
 
-  print "\n\nRESULTS: %d correct out of %d total (%2.3f)" % (n_correct, n_total, 100*n_correct/float(n_total))
-  print "  Skew: %2.3f%% are 0" % ((1 - sum(test_targs) / n_total) * 100)
+  precision = tp / float(tp + fp)
+  recall = tp / float(tp + fn)
+  f1 = (2 * precision * recall) / float(precision + recall)
+
+  print "\n\nRESULTS: %d correct out of %d total (%2.3f accuracy)" % (n_correct, n_total, 100*n_correct/float(n_total))
+  print "  Precision: %.3f    Recall: %.3f    F1 score: %.3f" % (precision, recall, f1)
+  print "  Skew: %.3f%% of targets are 0" % ((1 - sum(test_targs) / n_total) * 100)
   return predicted_targs
 
 

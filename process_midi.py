@@ -6,6 +6,10 @@ import datetime
 import os
 import tensorflow as tf
 
+def examine_song(filename):
+  for msg in mido.MidiFile(filename):
+    if not msg.is_meta: print ("[%d] " % msg.channel) + str(msg)
+
 def load_song(filename, drum=35, memory_length=8, ticks_per_beat=4):
   t = 0
   r = 0
@@ -18,15 +22,12 @@ def load_song(filename, drum=35, memory_length=8, ticks_per_beat=4):
 
   mid = mido.MidiFile(filename)
   for msg in mid:
-    print msg
     if msg.type == 'set_tempo':
       bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second 
       model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
-      print "SET TEMPO %.2f BPS; now using %d inputs (%d beats, %d ticks per beat)" % (bps, len(model_input), memory_length, ticks_per_beat)
 
     t += msg.time
     if msg.type == 'note_on' and msg.note == drum and msg.velocity > 1.0:
-      print "NOTE ON (%f time passed, bps is %f, %f ticks per beat, %f vel)" % ((msg.time+r), bps, ticks_per_beat, msg.velocity)
       d = int((msg.time+r) * bps * ticks_per_beat + 0.5) # nice trick: int(x+0.5) rounds x to the nearest whole
       if d < 1: r += msg.time
       else: 
@@ -38,7 +39,6 @@ def load_song(filename, drum=35, memory_length=8, ticks_per_beat=4):
           model_input[0] = 0
           model_input = np.roll(model_input, -1)
         model_input[len(model_input)-1] = 1
-        print str(t) + "(" + str(float(d)/ticks_per_beat) + " beats): " + str(model_input)
     else: 
       r += msg.time
 
@@ -55,17 +55,22 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
   nsongs = 0
 
   for file in os.listdir(dirname):
+    print "Loading song %s" % str(file)
     nsongs += 1
     mid = mido.MidiFile(dirname + str(file))
     for msg in mid:
       if msg.type == 'set_tempo':
         bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second 
         model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
-        print "SET TEMPO %.2f BPS; now using %d inputs (%d beats, %d ticks per beat)" % (bps, len(model_input), memory_length, ticks_per_beat)
+
+      if msg.type == 'time_signature':
+        # gotta constrict ourselves to 4/4 for now
+        if msg.numerator != 4 or msg.denominator != 4: 
+          print "  Aborted: time signature is %d/%d" % (msg.numerator, msg.denominator)
+          break
 
       t += msg.time
       if msg.type == 'note_on' and msg.note == drum and msg.velocity > 1.0:
-        print "NOTE ON (%f time passed, bps is %f, %f ticks per beat, %f vel)" % ((msg.time+r), bps, ticks_per_beat, msg.velocity)
         d = int((msg.time+r) * bps * ticks_per_beat + 0.5) # nice trick: int(x+0.5) rounds x to the nearest whole
         if d < 1: r += msg.time
         else: 
@@ -77,7 +82,6 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
             model_input[0] = 0
             model_input = np.roll(model_input, -1)
           model_input[len(model_input)-1] = 1
-          print str(t) + "(" + str(float(d)/ticks_per_beat) + " beats): " + str(model_input)
       else: 
         r += msg.time
     if ndata > 50000: break 
