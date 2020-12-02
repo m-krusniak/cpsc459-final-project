@@ -40,9 +40,9 @@ def main(songpath, modelpath):
         inference = model.predict(filter_input)
         belief = inference[0]
 
-        roc = 0.2
+        roc = 0.02
         predicted_targs += [1 if belief[1] < roc else 0]
-        print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[1] < roc else 0, belief[1])
+        print "True: %d | Predicted: %d (%.8f)" % (next_action, 1 if belief[1] < roc else 0, belief[1])
 
     n_correct = 0
     n_total = 0
