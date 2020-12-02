@@ -27,8 +27,9 @@ def main(songpath, modelpath):
     fn = 0.0
     # for each time step in the trajectory
     # the target is the next observation
+    predicted_targs = []
+
     for action in obs:
-        print action
 
         prev_belief = belief
 
@@ -38,26 +39,43 @@ def main(songpath, modelpath):
         inference = model.predict(filter_input)
         belief = inference[0]
 
-        roc = 0.0027
-        belief2 = belief
-        belief2[belief > roc] = 1.0
-        belief2[belief <= roc] = 0.0
+        roc = 0.249
+        predicted_targs += [1 if belief[0] > roc else 0]
+        print "True: %d | Predicted: %d (%.3f)" % (action, 1 if belief[0] > roc else 0, belief[0])
 
-        print belief
-        if belief2[0] != action:
-            if belief2[0] > action:
-                fp += 1.0
-            else:
-                fn += 1.0
-        else:
-            correct_count += 1.0
+    n_correct = 0
+    n_total = 0
+    tp = 0
+    fn = 0
+    fp = 0
+    for p in zip(obs, predicted_targs): 
+      if p[0] == p[1]:
+        n_correct += 1
+      if p[0] == 1 and p[1] == 1:
+        tp += 1
+      if p[0] == 1 and p[1] == 0:
+        fn += 1
+      if p[0] == 0 and p[1] == 1:
+        fp += 1
+      n_total += 1
 
-    # after the loop is finished, add up the misses and the hits
-    # print these out!
-    print correct_count / len(obs)
-    print len(obs) - correct_count
-    print fp
-    print fn
+
+    print "\n\nRESULTS:"
+    print "False total: " + str(len(obs) - correct_count)
+    print "False positive: " + str(fp)
+    print "False negative: " + str(fn)
+    print "True positive: " + str(tp)
+
+    precision = tp / float(tp + fp)
+    recall = tp / float(tp + fn)
+    f1 = (2 * precision * recall) / float(precision + recall)
+
+    print "%d correct out of %d total (%2.3f accuracy)" % (n_correct, n_total, 100*n_correct/float(n_total))
+    print "  Precision: %.3f    Recall: %.3f    F1 score: %.3f" % (precision, recall, f1)
+    print "  Skew: %.3f%% of targets are 0" % ((1 - sum(obs) / n_total) * 100)
+    return predicted_targs
+
+    
 
 if __name__ == '__main__':
     # parse command line arguments
