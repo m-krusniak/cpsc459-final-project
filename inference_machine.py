@@ -1,4 +1,4 @@
-#!/usr/bin/#!/usr/bin/env python
+#!/usr/bin/env python
 
 import argparse
 import os
@@ -37,7 +37,7 @@ def build_filter_fn(input_shape):
     hidden3 = tf.keras.layers.Dense(64, activation="relu", use_bias=True)(hidden2)
     hidden4 = tf.keras.layers.Dense(32, activation="relu", use_bias=True)(hidden3)
 
-    output = tf.keras.layers.Dense(31, use_bias=True)(hidden4)
+    output = tf.keras.layers.Dense(31, activation="sigmoid", use_bias=True)(hidden4)
     model = tf.keras.models.Model(inputs=input, outputs=output, name="filter")
     return model
 
