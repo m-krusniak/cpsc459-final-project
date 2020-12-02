@@ -37,8 +37,7 @@ def build_filter_fn(input_shape):
     hidden3 = tf.keras.layers.Dense(64, activation="relu", use_bias=True)(hidden2)
     hidden4 = tf.keras.layers.Dense(32, activation="relu", use_bias=True)(hidden3)
 
-    # output = tf.keras.layers.Dense(31, use_bias=True)(hidden4)
-    output = tf.keras.layers.Dense(1, use_bias=True)(hidden4)
+    output = tf.keras.layers.Dense(31, use_bias=True)(hidden4)
     model = tf.keras.models.Model(inputs=input, outputs=output, name="filter")
     return model
 
@@ -47,8 +46,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
 
     # Initialize dataset: D <- D_0 <- Null
     dataset_features = np.empty((0,32), dtype=np.float64)
-    # dataset_targets = np.empty((0,31), dtype=np.float64)
-    dataset_targets = np.empty((0,1), dtype=np.float64)
+    dataset_targets = np.empty((0,31), dtype=np.float64)
 
     # Initialize model
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001),
@@ -62,8 +60,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
     for n in range(0,dagger_n):
         print "DAgger STEP: %d" % (n)
         dataset_n_features = np.empty((0,32), dtype=np.float64)
-        # dataset_n_targets = np.empty((0,31), dtype=np.float64)
-        dataset_n_targets = np.empty((0,1), dtype=np.float64)
+        dataset_n_targets = np.empty((0,31), dtype=np.float64)
 
         # roll out belief propagation on each trajectory
         for tau in trajectories:
@@ -72,8 +69,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
 
                 # combine previous belief with current observation
                 # predict belief
-                # filter_input = np.append(prev_belief, tau[1][t], axis=0)
-                filter_input = np.append(tau[0][t], tau[1][t])
+                filter_input = np.append(prev_belief, tau[1][t], axis=0)
                 filter_input = np.expand_dims(filter_input, axis=0)
                 inference = model.predict(filter_input)
                 belief = inference[0] # we're only predicting one sample
@@ -84,7 +80,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
                 z = np.expand_dims(z, axis=0)
                 dataset_n_features = np.concatenate((dataset_n_features, z), axis=0)
                 # as targets, add the next hint
-                # phi = np.expand_dims(tau[0][t+31], axis=0)
+                phi = np.expand_dims(tau[0][t+31], axis=0)
                 dataset_n_targets = np.concatenate((dataset_n_targets, phi), axis=0)
 
         # DAgger step: aggregate D = D U D_n
