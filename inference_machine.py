@@ -10,7 +10,7 @@ from process_midi import *
 
 def binary_crossentropy(y_true, y_pred):
     bce = tf.keras.losses.BinaryCrossentropy()
-    return bce(y_true[-1], y_pred[-1])
+    return bce(y_true[1], y_pred[1])
 
 def get_trajectories(midi_dir, n=1):
     # check that the directory specified by midi_dir exists
@@ -54,7 +54,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
 
     # Initialize model
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001),
-                  loss=binary_crossentropy,
+                  loss='mae',
                   metrics=['mse'])
 
     # Initialize predicted belief

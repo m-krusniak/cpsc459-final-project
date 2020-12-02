@@ -29,8 +29,9 @@ def main(songpath, modelpath):
     # the target is the next observation
     predicted_targs = []
 
-    for action in obs:
-
+    for t in range(0,len(obs)-1):
+        action = obs[t]
+        next_action = obs[t+1]
         prev_belief = belief
 
         # then predict the next window, given the previous belief and the next target
@@ -39,16 +40,16 @@ def main(songpath, modelpath):
         inference = model.predict(filter_input)
         belief = inference[0]
 
-        roc = 0.249
-        predicted_targs += [1 if belief[0] > roc else 0]
-        print "True: %d | Predicted: %d (%.3f)" % (action, 1 if belief[0] > roc else 0, belief[0])
+        roc = 0.2
+        predicted_targs += [1 if belief[1] < roc else 0]
+        print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[1] < roc else 0, belief[1])
 
     n_correct = 0
     n_total = 0
     tp = 0
     fn = 0
     fp = 0
-    for p in zip(obs, predicted_targs): 
+    for p in zip(obs, predicted_targs):
       if p[0] == p[1]:
         n_correct += 1
       if p[0] == 1 and p[1] == 1:
@@ -75,7 +76,7 @@ def main(songpath, modelpath):
     print "  Skew: %.3f%% of targets are 0" % ((1 - sum(obs) / n_total) * 100)
     return predicted_targs
 
-    
+
 
 if __name__ == '__main__':
     # parse command line arguments
