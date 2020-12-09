@@ -52,8 +52,9 @@ def analyze_ff(genres_dir, output_dir, drum):
 
     # Train up a feed-forward model
     (train_data, train_targs, n_train) = load_all_songs(train_dir, memory_length=16, drum=drum)
-    ff_model = train(*separate_train_val(train_data, train_targs))
-    ff_model.save(model_file)
+    model = FeedForward(drum)
+    model.train(*separate_train_val(train_data, train_targs))
+    model.export(model_file)
 
     # Test all songs in test directory
     for filename in os.listdir(test_dir):
@@ -61,7 +62,7 @@ def analyze_ff(genres_dir, output_dir, drum):
       test_data = np.reshape(test_data, (len(test_data), 63))
       test_targs = np.reshape(test_targs, (len(test_targs), 1))
 
-      (pred, tp, fn, fp, n_total) = evaluate(ff_model, test_data, test_targs)
+      (pred, tp, fn, fp, n_total) = model.evaluate(test_data, test_targs)
 
       fn_all += fn
       tp_all += tp
@@ -86,8 +87,8 @@ def analyze_im(genres_dir, output_dir, drum, machine_type):
     # Train up the inference machine
     model = InferenceMachine(machine_type, drum=drum)
     n = len(os.listdir(train_dir))
-    model.train(train_dir, n, 4)
-    model.export(model_name)
+    model.train(train_dir, n, 1)
+    model.export(model_file)
 
     # Test all songs in test directory
     for filename in os.listdir(test_dir):

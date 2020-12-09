@@ -34,7 +34,7 @@ def load_song(filename, drum=36, memory_length=8, ticks_per_beat=4):
         r = 0
         for i in range(0, d):
           data += [model_input[:-1]]
-          targ += [[model_input[-1]]]
+          targ += [model_input[-1]]
           ndata += 1
           model_input[0] = 0
           model_input = np.roll(model_input, -1)
@@ -78,7 +78,7 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
           r = 0
           for i in range(0, d):
             data += [model_input[:-1]]
-            targ += [[model_input[-1]]]
+            targ += [model_input[-1]]
             ndata += 1
             model_input[0] = 0
             model_input = np.roll(model_input, -1)

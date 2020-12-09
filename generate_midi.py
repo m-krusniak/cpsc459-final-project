@@ -9,15 +9,18 @@ import evaluate_inference_machine_filter as eimf
 import inference_machine
 
 def generate_im_mlp(model_file, predict_dir, output_dir, drum):
+  model = InferenceMachine(drum)
+  model.load(model_file)
   for filename in os.listdir(predict_dir):
-    (im_pred, im_tp, im_fn, im_fp, im_n_total) = eimf.main(predict_dir+filename, model_file)
+    (im_pred, im_tp, im_fn, im_fp, im_n_total) = model.evaluate(predict_dir+filename)
     save_song(output_dir + "/im_mlp_pred__" + filename, im_pred)
 
 
 def generate_ff(model_file, predict_dir, output_dir, drum):
 
   # Train up a feed-forward model
-  model = load(model_file)
+  model = FeedForward(drum)
+  model.load(model_file)
 
   # Test all songs in test directory
   for filename in os.listdir(predict_dir):
@@ -25,13 +28,15 @@ def generate_ff(model_file, predict_dir, output_dir, drum):
     test_data = np.reshape(test_data, (len(test_data), 63))
     test_targs = np.reshape(test_targs, (len(test_targs), 1))
 
-    (ff_pred, ff_tp, ff_fn, ff_fp, ff_n_total) = evaluate(ff_model, test_data, test_targs)
+    (ff_pred, ff_tp, ff_fn, ff_fp, ff_n_total) = model.evaluate(test_data, test_targs)
 
     save_song(output_dir + "/ff_pred__" + filename, ff_pred)
 
 def generate_im_rf(model_file, predict_dir, output_dir, drum):
+  model = InferenceMachine(drum)
+  model.load(model_file)
   for filename in os.listdir(predict_dir):
-    (im_pred, im_tp, im_fn, im_fp, im_n_total) = eimf.main(predict_dir+filename, model_file)
+    (im_pred, im_tp, im_fn, im_fp, im_n_total) = model.evaluate(predict_dir+filename)
     save_song(output_dir + "/im_rf_pred__" + filename, im_pred)
 
 

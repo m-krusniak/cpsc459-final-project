@@ -38,3 +38,12 @@ True positive: 3252
 18470 correct out of 21445 total (86.127 accuracy)
   Precision: 0.615    Recall: 0.775    F1 score: 0.686
   Skew: 80.438% of targets are 0
+
+
+RESULTS FOR GENRE 'rock' AND MODEL 'inference-machine-MLP'
+Total tests: 8913
+False positive: 0
+False negative: 2168
+True positive: 0
+  ERROR: All outputs were zero.
+

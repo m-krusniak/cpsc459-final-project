@@ -54,7 +54,7 @@ class InferenceMachine:
             prev_belief = belief
 
             # then predict the next window, given the previous belief and the next target
-            filter_input = np.append(prev_belief, action, axis=0)
+            filter_input = np.append(prev_belief, [action], axis=0)
             filter_input = np.expand_dims(filter_input, axis=0)
             inference = self.model.predict(filter_input)
             belief = inference[0]
@@ -76,4 +76,7 @@ class InferenceMachine:
         return (predicted_targs, tp, fn, fp, n_total)
 
     def export(self, filename):
-        self.save(filename)
+        self.model.save(filename)
+
+    def load(self, filename):
+        self.model = tf.keras.models.load_model(filename, compile=True)
