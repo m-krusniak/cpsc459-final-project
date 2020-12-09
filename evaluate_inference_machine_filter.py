@@ -28,7 +28,7 @@ def main(songpath, modelpath):
     # for each time step in the trajectory
     # the target is the next observation
     predicted_targs = []
-    true_targs = []
+    true_targs = [0] # offset by one
 
     for t in range(0,len(obs)-1):
         action = obs[t]
@@ -41,25 +41,19 @@ def main(songpath, modelpath):
         inference = model.predict(filter_input)
         belief = inference[0]
 
-        roc = 0.4
+        roc = 0.0003
         predicted_targs += [1 if belief[0] < roc else 0]
         true_targs += [next_action]
         print ("True: %d | Predicted: %d (%.10f) " % (next_action, 1 if belief[0] > roc else 0, belief[0])) + str(belief)
 
-    n_correct = 0
     n_total = 0
     tp = 0
     fn = 0
     fp = 0
     for p in zip(true_targs, predicted_targs):
-      if p[0] == p[1]:
-        n_correct += 1
-      if p[0] == 1 and p[1] == 1:
-        tp += 1
-      if p[0] == 1 and p[1] == 0:
-        fn += 1
-      if p[0] == 0 and p[1] == 1:
-        fp += 1
+      if p[0] == 1 and p[1] == 1: tp += 1
+      if p[0] == 1 and p[1] == 0: fn += 1
+      if p[0] == 0 and p[1] == 1: fp += 1
       n_total += 1
 
     return (predicted_targs, tp, fn, fp, n_total)

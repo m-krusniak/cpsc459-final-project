@@ -10,7 +10,7 @@ from process_midi import *
 
 def binary_crossentropy(y_true, y_pred):
     bce = tf.keras.losses.BinaryCrossentropy()
-    return bce(y_true[1], y_pred[1])
+    return bce(y_true[0], y_pred[0])
 
 def get_trajectories(midi_dir, n=1):
     # check that the directory specified by midi_dir exists
@@ -73,14 +73,14 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
 
                 # combine previous belief with current observation
                 # predict belief
-                filter_input = np.append(prev_belief, tau[1][t], axis=0)
+                filter_input = np.append(tau[1][t], prev_belief, axis=0)
                 filter_input = np.expand_dims(filter_input, axis=0)
                 inference = model.predict(filter_input)
                 belief = inference[0] # we're only predicting one sample
 
                 # create dataset D_n
                 # as features, add the predicted belief and the observation
-                z = np.append(belief, tau[1][t])
+                z = np.append(tau[1][t], belief)
                 z = np.expand_dims(z, axis=0)
                 dataset_n_features = np.concatenate((dataset_n_features, z), axis=0)
                 # as targets, add the next hint
@@ -97,7 +97,7 @@ def train_filter_dagger(model, trajectories, dagger_n=50):
     return model
 
 
-def main(midi_dir, traj_i, dagger_n):
+def main(midi_dir, traj_i, dagger_n, output_file='filter_function.h5'):
     # get trajectories
     trajectories = get_trajectories(midi_dir, traj_i)
 
@@ -108,7 +108,7 @@ def main(midi_dir, traj_i, dagger_n):
     trained_filter_fn = train_filter_dagger(filter_fn, trajectories, dagger_n)
 
     # save model to file
-    trained_filter_fn.save('filter_fn.h5')
+    trained_filter_fn.save(output_file)
 
 if __name__ == '__main__':
     # parse command line args

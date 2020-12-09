@@ -26,8 +26,8 @@ def get_trajectories(midi_dir, n=1, drum=36):
         if len(data) != 0 and len(targ) != 0:
             hints = np.array(data)
             obs = np.array(targ)
-            obs = np.append(np.array(0),obs)
-            obs = obs[range(0,len(targ))]
+            # obs = np.append(np.array(0),obs)
+            # obs = obs[range(0,len(targ))]
             obs = np.expand_dims(obs, axis=1)
 
             tau = (hints, obs)

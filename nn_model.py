@@ -40,7 +40,7 @@ def train(train_data, train_targs, val_data, val_targs):
                                                             save_freq=1)
 
   # do training for the specified number of epochs and with the given batch size
-  model.fit(train_data, train_targs, epochs=3, batch_size=4,
+  model.fit(train_data, train_targs, epochs=6, batch_size=4,
             validation_data=(val_data, val_targs),
             callbacks=[tbCallBack, checkpointCallBack])
 

@@ -1,0 +1,40 @@
+
+
+RESULTS FOR GENRE 'rock' AND MODEL 'feed-forward'
+Total tests: 8917
+False positive: 867
+False negative: 376
+True positive: 1795
+7674 correct out of 8917 total (86.060 accuracy)
+  Precision: 0.674    Recall: 0.827    F1 score: 0.743
+  Skew: 75.653% of targets are 0
+
+
+RESULTS FOR GENRE 'latin' AND MODEL 'feed-forward'
+Total tests: 11403
+False positive: 1043
+False negative: 443
+True positive: 2257
+9917 correct out of 11403 total (86.968 accuracy)
+  Precision: 0.684    Recall: 0.836    F1 score: 0.752
+  Skew: 76.322% of targets are 0
+
+
+RESULTS FOR GENRE 'funk' AND MODEL 'feed-forward'
+Total tests: 17057
+False positive: 1724
+False negative: 723
+True positive: 3152
+14610 correct out of 17057 total (85.654 accuracy)
+  Precision: 0.646    Recall: 0.813    F1 score: 0.720
+  Skew: 77.282% of targets are 0
+
+
+RESULTS FOR GENRE 'jazz' AND MODEL 'feed-forward'
+Total tests: 21445
+False positive: 2032
+False negative: 943
+True positive: 3252
+18470 correct out of 21445 total (86.127 accuracy)
+  Precision: 0.615    Recall: 0.775    F1 score: 0.686
+  Skew: 80.438% of targets are 0

@@ -68,30 +68,12 @@ class InferenceMachine:
         fn = 0
         fp = 0
         for p in zip(obs, predicted_targs):
-            if p[0] == p[1]:
-                n_correct += 1
-            if p[0] == 1 and p[1] == 1:
-                tp += 1
-            if p[0] == 1 and p[1] == 0:
-                fn += 1
-            if p[0] == 0 and p[1] == 1:
-                fp += 1
+            if p[0] == 1 and p[1] == 1: tp += 1
+            if p[0] == 1 and p[1] == 0: fn += 1
+            if p[0] == 0 and p[1] == 1: fp += 1
             n_total += 1
 
+        return (predicted_targs, tp, fn, fp, n_total)
 
-        print "\n\nRESULTS:"
-        print "False positive: " + str(fp)
-        print "False negative: " + str(fn)
-        print "True positive: " + str(tp)
-
-        precision = tp / float(tp + fp)
-        recall = tp / float(tp + fn)
-        f1 = (2 * precision * recall) / float(precision + recall)
-
-        print "%d correct out of %d total (%2.3f accuracy)" % (n_correct, n_total, 100*n_correct/float(n_total))
-        print "  Precision: %.3f    Recall: %.3f    F1 score: %.3f" % (precision, recall, f1)
-        print "  Skew: %.3f%% of targets are 0" % ((1 - sum(obs) / n_total) * 100)
-
-        return predicted_targs
-
-    # def export(self, filename):
+    def export(self, filename):
+        self.save(filename)

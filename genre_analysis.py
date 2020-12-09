@@ -6,11 +6,11 @@ from save_midi import *
 from nn_model import *
 import tensorflow as tf
 import evaluate_inference_machine_filter as eimf
-import inference_machine
+from InferenceMachine import InferenceMachine
 
 
-def print_results(genre_name, model_name, tp, fn, fp, total):
-  log = open("genre_output.txt", "a")
+def print_results(genre_name, model_name, tp, fn, fp, total, output_dir):
+  log = open(output_dir + "/genre_output.txt", "a")
 
   # Print results
   log.write("\n\nRESULTS FOR GENRE '%s' AND MODEL '%s'" % (genre_name, model_name) + "\n")
@@ -26,12 +26,11 @@ def print_results(genre_name, model_name, tp, fn, fp, total):
   if tp + fn == 0: 
     log.write("  ERROR: No true positives or false negatives.\n\n")
     return
-  
+
 
   precision = tp / float(tp + fp)
   recall = tp / float(tp + fn)
   f1 = (2 * precision * recall) / float(precision + recall)
-
   pos = tp+fn
   true = (total-fn-fp)
 
@@ -39,24 +38,22 @@ def print_results(genre_name, model_name, tp, fn, fp, total):
   log.write("  Precision: %.3f    Recall: %.3f    F1 score: %.3f\n" % (precision, recall, f1))
   log.write("  Skew: %.3f%% of targets are 0\n" % ((1 - float(pos)/total) * 100))
 
-def analyze(genres_dir, drum):
+def analyze_ff(genres_dir, output_dir, drum):
 
   genres = os.listdir(genres_dir + "/train/") 
 
-  im_tp_all = im_fp_all = im_fn_all = im_n_total_all = 0
-  ff_tp_all = ff_fp_all = ff_fn_all = ff_n_total_all = 0
+  tp_all = fp_all = fn_all = n_total_all = 0
 
   for g in genres:
 
     train_dir = genres_dir + '/train/%s/'%g
     test_dir = genres_dir + '/test/%s/'%g
+    model_file = output_dir + "/ff_model_%s.h5"%g
 
     # Train up a feed-forward model
     (train_data, train_targs, n_train) = load_all_songs(train_dir, memory_length=16, drum=drum)
     ff_model = train(*separate_train_val(train_data, train_targs))
-
-    # Train up a perceptron-backed inference machine
-    inference_machine.main(train_dir, n_train, 4)
+    ff_model.save(model_file)
 
     # Test all songs in test directory
     for filename in os.listdir(test_dir):
@@ -64,22 +61,55 @@ def analyze(genres_dir, drum):
       test_data = np.reshape(test_data, (len(test_data), 63))
       test_targs = np.reshape(test_targs, (len(test_targs), 1))
 
-      (im_pred, im_tp, im_fn, im_fp, im_n_total) = eimf.main(test_dir+filename, 'filter_fn.h5')
-      (ff_pred, ff_tp, ff_fn, ff_fp, ff_n_total) = evaluate(ff_model, test_data, test_targs)
+      (pred, tp, fn, fp, n_total) = evaluate(ff_model, test_data, test_targs)
 
-      ff_fn_all += ff_fn; ff_tp_all += ff_tp; ff_fp_all += ff_fp; ff_n_total_all += ff_n_total
-      im_fn_all += im_fn; im_tp_all += im_tp; im_fp_all += im_fp; im_n_total_all += im_n_total
+      fn_all += fn
+      tp_all += tp
+      fp_all += fp
+      n_total_all += n_total
 
-    print_results(g, "perceptron-im", im_tp_all, im_fn_all, im_fp_all, im_n_total_all)
-    print_results(g, "feed-forward" , ff_tp_all, ff_fn_all, ff_fp_all, ff_n_total_all)
+    print_results(g, "feed-forward", tp_all, fn_all, fp_all, n_total_all, output_dir)
+
+
+def analyze_im(genres_dir, output_dir, drum, machine_type):
+
+  genres = os.listdir(genres_dir + "/train/") 
+
+  tp_all = fp_all = fn_all = n_total_all = 0
+
+  for g in genres:
+
+    train_dir = genres_dir + '/train/%s/'%g
+    test_dir = genres_dir + '/test/%s/'%g
+    model_file = output_dir + "/im-%s_model_%s.h5"%(machine_type, g)
+
+    # Train up the inference machine
+    model = InferenceMachine(machine_type, drum=drum)
+    n = len(os.listdir(train_dir))
+    model.train(train_dir, n, 4)
+    model.export(model_name)
+
+    # Test all songs in test directory
+    for filename in os.listdir(test_dir):
+
+      (pred, tp, fn, fp, n_total) = model.evaluate(test_dir+filename)
+
+      fn_all += fn
+      tp_all += tp
+      fp_all += fp
+      n_total_all += n_total
+
+    print_results(g, "inference-machine-"+machine_type , tp_all, fn_all, fp_all, n_total_all, output_dir)
+
 
 if __name__ == '__main__':
   # parse command line args
   parser = argparse.ArgumentParser(description="Run available models on a variety of genres")
+  parser.add_argument('model_type', help="type of model: one of im_mlp, im_rf, or ff", type=str)
   parser.add_argument('genres_dir', help="path of folder containing train/ and test/, each containing a folder for each genre", type=str)
-  # parser.add_optional_argument('drum', help="MIDI drum for the analysis (e.g., 38 is bass, 42 is snare)", type=int, default=38)
+  parser.add_argument('output_dir', help="path of folder in which to place models and output log", type=str)
   args = parser.parse_args()
 
-  # run main()
-  print "Analyzing..."
-  analyze(args.genres_dir, 38)
+  if args.model_type == "ff": analyze_ff(args.genres_dir, args.output_dir, 36)
+  if args.model_type == "im_mlp": analyze_im(args.genres_dir, args.output_dir, 36, 'MLP')
+  if args.model_type == "im_rf": analyze_im(args.genres_dir, args.output_dir, 36, 'RF')

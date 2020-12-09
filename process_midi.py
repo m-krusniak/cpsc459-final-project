@@ -18,13 +18,13 @@ def load_song(filename, drum=36, memory_length=8, ticks_per_beat=4):
   ndata = 0
   nsongs = 0
   bps = 7.0/3.0 # around two beats per second is a reasonable default, musically
-  model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
+  model_input = np.zeros(int(memory_length * ticks_per_beat))
 
   mid = mido.MidiFile(filename)
   for msg in mid:
     if msg.type == 'set_tempo':
       bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second
-      model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
+      model_input = np.zeros(int(memory_length * ticks_per_beat))
 
     t += msg.time
     if msg.type == 'note_on' and msg.note == drum and msg.velocity > 1.0:
@@ -33,7 +33,7 @@ def load_song(filename, drum=36, memory_length=8, ticks_per_beat=4):
       else:
         r = 0
         for i in range(0, d):
-          data += [model_input[:-2]]
+          data += [model_input[:-1]]
           targ += [[model_input[-1]]]
           ndata += 1
           model_input[0] = 0
@@ -41,6 +41,7 @@ def load_song(filename, drum=36, memory_length=8, ticks_per_beat=4):
         model_input[len(model_input)-1] = 1
     else: 
       r += msg.time
+
 
   print "LOADED SONG %s (%d examples)" % (filename, ndata)
   return data, targ
@@ -61,7 +62,7 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
     for msg in mid:
       if msg.type == 'set_tempo':
         bps = mido.tempo2bpm(msg.tempo)/60.0 # beats per second
-        model_input = np.zeros(int(memory_length * ticks_per_beat)+1)
+        model_input = np.zeros(int(memory_length * ticks_per_beat))
 
       if msg.type == 'time_signature':
         # gotta constrict ourselves to 4/4 for now
@@ -76,12 +77,11 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
         else:
           r = 0
           for i in range(0, d):
-            data += [model_input[:-2]]
+            data += [model_input[:-1]]
             targ += [[model_input[-1]]]
             ndata += 1
             model_input[0] = 0
             model_input = np.roll(model_input, -1)
-            print file
           model_input[len(model_input)-1] = 1
       else:
         r += msg.time
