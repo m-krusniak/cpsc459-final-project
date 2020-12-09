@@ -58,8 +58,8 @@ def train_mlp_dagger(model, trajectories, dagger_n=50):
 
     # Initialize model
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001),
-                  loss='mae',
-                  metrics=['mse'])
+                  loss='binary_crossentropy',
+                  metrics=['binary_accuracy'])
 
     # Initialize predicted belief
     belief = np.ones((31,))
