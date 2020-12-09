@@ -62,7 +62,6 @@ def main(songpath, modelpath):
 
 
     print "\n\nRESULTS:"
-    print "False total: " + str(len(obs) - correct_count)
     print "False positive: " + str(fp)
     print "False negative: " + str(fn)
     print "True positive: " + str(tp)
