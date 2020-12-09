@@ -17,7 +17,7 @@ class InferenceMachine:
     def __init__(self, learner, drum=36):
         self.learner = learner
         self.drum = drum
-        self.roc = 0.5
+        self.thresh = 0.5
 
 
     def train(self, data_dir, i, N):
@@ -35,6 +35,39 @@ class InferenceMachine:
 
         else:
             print "ERROR: Unknown learner type"
+
+        means = self.get_thresh(self.model, trajectories[0])
+        self.thresh = means[0]
+        print self.thresh
+
+    def get_thresh(self, model, trajectory):
+        # get predictions from trajectory
+        # set belief
+        belief = np.ones((31,))
+        predicted_positives = []
+        predicted_negatives = []
+
+        for t in range(0,len(trajectory[1])-1):
+            action = trajectory[1][t]
+            next_action = trajectory[1][t+1]
+            prev_belief = belief
+
+            # prediction step - get next belief
+            filter_input = np.append(prev_belief, action, axis=0)
+            filter_input = np.expand_dims(filter_input, axis=0)
+            inference = self.model.predict(filter_input)
+            belief = inference[0]
+
+            if next_action == 1.0:
+                predicted_positives.append(belief[1])
+            else:
+                predicted_negatives.append(belief[1])
+
+        positive_mean =  sum(predicted_positives) / float(len(predicted_positives))
+        negative_mean = sum(predicted_negatives) / float(len(predicted_negatives))
+        # determine mean of predictions
+        # set that to self.thresh
+        return positive_mean, negative_mean
 
 
     def evaluate(self, songpath):
@@ -60,7 +93,7 @@ class InferenceMachine:
             inference = self.model.predict(filter_input)
             belief = inference[0]
 
-            predicted_targs += [1 if belief[0] > self.roc else 0]
+            predicted_targs += [1 if belief[1] > self.thresh else 0]
 
         n_correct = 0
         n_total = 0

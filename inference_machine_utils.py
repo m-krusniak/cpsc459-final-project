@@ -58,8 +58,8 @@ def train_mlp_dagger(model, trajectories, dagger_n=50):
 
     # Initialize model
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001),
-                  loss='mae',
-                  metrics=['mse'])
+                  loss='binary_crossentropy',
+                  metrics=['binary_accuracy'])
 
     # Initialize predicted belief
     belief = np.ones((31,))
@@ -112,7 +112,7 @@ def train_forest_dagger(trajectories, dagger_n=50):
 
     # Initialize predicted belief
     belief = np.ones((31,))
-    belief_init = np.append(belief, np.array(0.0))
+    belief_init = np.append(belief, np.array(1.0))
     belief_init = np.expand_dims(belief_init, axis=0)
 
     target_init = np.ones((1,31))
