@@ -112,7 +112,7 @@ def train_forest_dagger(trajectories, dagger_n=50):
 
     # Initialize predicted belief
     belief = np.ones((31,))
-    belief_init = np.append(belief, np.array(0.0))
+    belief_init = np.append(belief, np.array(1.0))
     belief_init = np.expand_dims(belief_init, axis=0)
 
     target_init = np.ones((1,31))

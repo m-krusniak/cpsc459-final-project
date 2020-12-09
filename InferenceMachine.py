@@ -58,9 +58,9 @@ class InferenceMachine:
             belief = inference[0]
 
             if next_action == 1.0:
-                predicted_positives.append(belief[0])
+                predicted_positives.append(belief[1])
             else:
-                predicted_negatives.append(belief[0])
+                predicted_negatives.append(belief[1])
 
         positive_mean =  sum(predicted_positives) / float(len(predicted_positives))
         negative_mean = sum(predicted_negatives) / float(len(predicted_negatives))
@@ -92,8 +92,8 @@ class InferenceMachine:
             inference = self.model.predict(filter_input)
             belief = inference[0]
 
-            predicted_targs += [1 if belief[0] > self.thresh else 0]
-            print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[0] > self.thresh else 0, belief[0])
+            predicted_targs += [1 if belief[1] > self.thresh else 0]
+            print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[1] > self.thresh else 0, belief[1])
 
         n_correct = 0
         n_total = 0
