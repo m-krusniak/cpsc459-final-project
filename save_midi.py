@@ -6,7 +6,7 @@ import datetime
 import os
 import tensorflow as tf
 
-def save_song(filename, sequence, drum=35, bps=7.0/3.0, ticks_per_beat=4):
+def save_song(filename, sequence, drum=36, bps=7.0/3.0, ticks_per_beat=4):
   
   file = mido.MidiFile()
   file.ticks_per_beat=ticks_per_beat 

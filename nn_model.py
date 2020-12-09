@@ -6,6 +6,7 @@ import datetime
 import os
 import tensorflow as tf
 
+
 def train(train_data, train_targs, val_data, val_targs):
 
   # STEP 1: Alert
@@ -30,7 +31,7 @@ def train(train_data, train_targs, val_data, val_targs):
   # tensorboard callback
   logs_dir = 'logs/log_{}'.format(datetime.datetime.now().strftime("%m-%d-%Y-%H-%M"))
   tbCallBack = tf.keras.callbacks.TensorBoard(log_dir=logs_dir, write_graph=True)
-  checkpointCallBack = tf.keras.callbacks.ModelCheckpoint(os.path.join(logs_dir, 'best_face_weights.h5'),
+  checkpointCallBack = tf.keras.callbacks.ModelCheckpoint(os.path.join(logs_dir, 'rhythm_weights.h5'),
                                                             monitor='binary_accuracy',
                                                             verbose=0,
                                                             save_best_only=True,
@@ -66,14 +67,7 @@ def evaluate(model, test_data, test_targs):
       fp += 1
     n_total += 1
 
-  precision = tp / float(tp + fp)
-  recall = tp / float(tp + fn)
-  f1 = (2 * precision * recall) / float(precision + recall)
-
-  print "\n\nRESULTS: %d correct out of %d total (%2.3f accuracy)" % (n_correct, n_total, 100*n_correct/float(n_total))
-  print "  Precision: %.3f    Recall: %.3f    F1 score: %.3f" % (precision, recall, f1)
-  print "  Skew: %.3f%% of targets are 0" % ((1 - sum(test_targs) / n_total) * 100)
-  return predicted_targs
+  return (predicted_targs, tp, fn, fp, n_total)
 
 
 def load(file):

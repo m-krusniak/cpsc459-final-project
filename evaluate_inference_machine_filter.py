@@ -28,6 +28,7 @@ def main(songpath, modelpath):
     # for each time step in the trajectory
     # the target is the next observation
     predicted_targs = []
+    true_targs = []
 
     for t in range(0,len(obs)-1):
         action = obs[t]
@@ -40,16 +41,17 @@ def main(songpath, modelpath):
         inference = model.predict(filter_input)
         belief = inference[0]
 
-        roc = 0.02
-        predicted_targs += [1 if belief[1] < roc else 0]
-        print "True: %d | Predicted: %d (%.8f)" % (next_action, 1 if belief[1] < roc else 0, belief[1])
+        roc = 0.4
+        predicted_targs += [1 if belief[0] < roc else 0]
+        true_targs += [next_action]
+        print ("True: %d | Predicted: %d (%.10f) " % (next_action, 1 if belief[0] > roc else 0, belief[0])) + str(belief)
 
     n_correct = 0
     n_total = 0
     tp = 0
     fn = 0
     fp = 0
-    for p in zip(obs, predicted_targs):
+    for p in zip(true_targs, predicted_targs):
       if p[0] == p[1]:
         n_correct += 1
       if p[0] == 1 and p[1] == 1:
@@ -61,20 +63,7 @@ def main(songpath, modelpath):
       n_total += 1
 
 
-    print "\n\nRESULTS:"
-    print "False total: " + str(len(obs) - correct_count)
-    print "False positive: " + str(fp)
-    print "False negative: " + str(fn)
-    print "True positive: " + str(tp)
-
-    precision = tp / float(tp + fp)
-    recall = tp / float(tp + fn)
-    f1 = (2 * precision * recall) / float(precision + recall)
-
-    print "%d correct out of %d total (%2.3f accuracy)" % (n_correct, n_total, 100*n_correct/float(n_total))
-    print "  Precision: %.3f    Recall: %.3f    F1 score: %.3f" % (precision, recall, f1)
-    print "  Skew: %.3f%% of targets are 0" % ((1 - sum(obs) / n_total) * 100)
-    return predicted_targs
+    return (predicted_targs, tp, fn, fp, n_total)
 
 
 

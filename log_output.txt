@@ -1,0 +1,80 @@
+
+
+RESULTS FOR GENRE 'rock' AND MODEL 'perceptron-im'
+Total tests: 8913
+False positive: 6742
+False negative: 0
+True positive: 2171
+2171 correct out of 8913 total (24.358 accuracy)
+  Precision: 0.244    Recall: 1.000    F1 score: 0.392
+  Skew: 75.642% of targets are 0
+
+
+RESULTS FOR GENRE 'rock' AND MODEL 'feed-forward'
+Total tests: 8960
+False positive: 2519
+False negative: 342
+True positive: 2028
+6099 correct out of 8960 total (68.069 accuracy)
+  Precision: 0.446    Recall: 0.856    F1 score: 0.586
+  Skew: 73.549% of targets are 0
+
+
+RESULTS FOR GENRE 'latin' AND MODEL 'perceptron-im'
+Total tests: 11395
+False positive: 8695
+False negative: 0
+True positive: 2700
+2700 correct out of 11395 total (23.695 accuracy)
+  Precision: 0.237    Recall: 1.000    F1 score: 0.383
+  Skew: 76.305% of targets are 0
+
+
+RESULTS FOR GENRE 'latin' AND MODEL 'feed-forward'
+Total tests: 11408
+False positive: 3116
+False negative: 410
+True positive: 2394
+7882 correct out of 11408 total (69.092 accuracy)
+  Precision: 0.434    Recall: 0.854    F1 score: 0.576
+  Skew: 75.421% of targets are 0
+
+
+RESULTS FOR GENRE 'funk' AND MODEL 'perceptron-im'
+Total tests: 17045
+False positive: 13170
+False negative: 0
+True positive: 3875
+3875 correct out of 17045 total (22.734 accuracy)
+  Precision: 0.227    Recall: 1.000    F1 score: 0.370
+  Skew: 77.266% of targets are 0
+
+
+RESULTS FOR GENRE 'funk' AND MODEL 'feed-forward'
+Total tests: 17092
+False positive: 5544
+False negative: 749
+True positive: 3893
+10799 correct out of 17092 total (63.182 accuracy)
+  Precision: 0.413    Recall: 0.839    F1 score: 0.553
+  Skew: 72.841% of targets are 0
+
+
+RESULTS FOR GENRE 'jazz' AND MODEL 'perceptron-im'
+Total tests: 21429
+False positive: 17234
+False negative: 0
+True positive: 4195
+4195 correct out of 21429 total (19.576 accuracy)
+  Precision: 0.196    Recall: 1.000    F1 score: 0.327
+  Skew: 80.424% of targets are 0
+
+
+RESULTS FOR GENRE 'jazz' AND MODEL 'feed-forward'
+Total tests: 21512
+False positive: 6710
+False negative: 1100
+True positive: 4372
+13702 correct out of 21512 total (63.695 accuracy)
+  Precision: 0.395    Recall: 0.799    F1 score: 0.528
+  Skew: 74.563% of targets are 0

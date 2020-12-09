@@ -88,7 +88,7 @@ def load_all_songs(dirname, drum=36, memory_length=8, ticks_per_beat=4):
     if ndata > 50000: break
 
   print "LOADED %d SONGS (%d examples)" % (nsongs, ndata)
-  return data, targ
+  return data, targ, nsongs
 
 def separate_data(data, targ):
 
@@ -119,3 +119,30 @@ def separate_data(data, targ):
   # test_data = inputs[ntrain+nval:ntrain+nval+ntest]
   # test_targs = targs[ntrain+nval:ntrain+nval+ntest]
   return (train_data, train_targs, val_data, val_targs, test_data, test_targs)
+
+def separate_train_val(data, targ):
+
+  inputs = np.array(data)
+  targs = np.array(targ)
+  ndata = len(inputs)
+
+  # Here's an issue: we probably shouldn't take exactly every 2 in 10 elements because there could be a pattern across 10
+  # Really we should randomize, but I don't know off the top of my head how to simultaneously randomize two lists in python -
+  # probably zip or something, but a simpler workaround is just to choose a number that has no musical significance - e.g,
+  # a small prime.
+  train_data = np.array([e for i, e in enumerate(inputs) if i % 19 < 16])
+  train_targs = np.array([e for i, e in enumerate(targs) if i % 19 < 16])
+  val_data = np.array([e for i, e in enumerate(inputs) if i % 19 >= 16])
+  val_targs = np.array([e for i, e in enumerate(targs) if i % 19 >= 16])
+  print train_data.shape
+
+  # If you want to do it sequentially here's how it'd work.
+  #  (but you don't; you want each set to contain parts of each song)
+
+  # train_data = inputs[0:ntrain]
+  # train_targs = targs[0:ntrain]
+  # val_data = inputs[ntrain:ntrain+nval]
+  # val_targs = targs[ntrain:ntrain+nval]
+  # test_data = inputs[ntrain+nval:ntrain+nval+ntest]
+  # test_targs = targs[ntrain+nval:ntrain+nval+ntest]
+  return (train_data, train_targs, val_data, val_targs)
