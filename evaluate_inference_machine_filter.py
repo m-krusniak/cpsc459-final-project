@@ -62,7 +62,6 @@ def main(songpath, modelpath):
         fp += 1
       n_total += 1
 
-
     return (predicted_targs, tp, fn, fp, n_total)
 
 
