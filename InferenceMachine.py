@@ -2,6 +2,7 @@
 
 import os
 import sys
+import pickle
 
 from sklearn.ensemble import RandomForestRegressor
 import tensorflow as tf
@@ -60,7 +61,6 @@ class InferenceMachine:
             belief = inference[0]
 
             predicted_targs += [1 if belief[0] > self.roc else 0]
-            print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[1] > self.roc else 0, belief[1])
 
         n_correct = 0
         n_total = 0
@@ -76,7 +76,15 @@ class InferenceMachine:
         return (predicted_targs, tp, fn, fp, n_total)
 
     def export(self, filename):
-        self.model.save(filename)
+        if self.learner == "RF":
+            file = open(filename, 'w+')
+            pickle.dump(self.model, file)
+        if self.learner == "MLP":
+            self.model.save(filename)
 
     def load(self, filename):
-        self.model = tf.keras.models.load_model(filename, compile=True)
+        if self.learner == "RF":
+            file = open(filename)
+            pickle.load(file)
+        if self.learner == "MLP":
+            self.model = tf.keras.models.load_model(filename, compile=True)

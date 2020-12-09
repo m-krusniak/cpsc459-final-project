@@ -5,8 +5,8 @@ from process_midi import *
 from save_midi import *
 from nn_model import *
 import tensorflow as tf
-import evaluate_inference_machine_filter as eimf
 from InferenceMachine import InferenceMachine
+from FeedForward import FeedForward
 
 
 def print_results(genre_name, model_name, tp, fn, fp, total, output_dir):
@@ -87,7 +87,7 @@ def analyze_im(genres_dir, output_dir, drum, machine_type):
     # Train up the inference machine
     model = InferenceMachine(machine_type, drum=drum)
     n = len(os.listdir(train_dir))
-    model.train(train_dir, n, 1)
+    model.train(train_dir, n, 4)
     model.export(model_file)
 
     # Test all songs in test directory
