@@ -1,1000 +1,1000 @@
-  361  rosrun tf2_tools view_frames.py 
-  362  evince frames.pdf 
-  363  roslaunch turtle_tf2 turtle_tf2_demo.launch
-  364  python
-  365  rosrun arbotix_python arbotix_gui
-  366  ls
-  367  cd src/
-  368  ls
-  369  cd shutter-ros/
-  370  ls
-  371  cd shutter_bringup/
-  372  ls
-  373  cd ..
-  374  ls
-  375  cd rqt_shutter_plugins/
-  376  ls
-  377  cd ..
-  378  ls
-  379  cd ..
-  380  ls
-  381  cd cpsc559-assignments/
-  382  ls
-  383  cd assignment-3
-  384  ls
-  385  cd shutter_lookat
-  386  ls
-  387  cd scripts/
-  388  ls
-  389  vim virtual_camera.py 
-  390  ls
-  391  cd ..
-  392  ls
-  393  cd shutter-ros/
-  394  ls
-  395  cd shutter_
-  396  cd shutter_bringup/
-  397  ls
-  398  cd src/
-  399  sl
-  400  ls
-  401  cd ..
-  402  ls
-  403  ls launch/
-  404  vi launch/shutter_sim.launch 
-  405  vi launch/shutter.launch 
-  406  python
-  407  roslaunch shutter_bringup shutter_sim.launch
-  408  roslaunch turtle_tf2 turtle_tf2_demo.launch
-  409  roslaunch shutter_bringup shutter_sim.launch
-  410  rosrun tf2_tools view_frames.py
-  411  evince frames.pdf 
-  412  rosrun tf tf_echo camera_link camera_color_optical_frame
-  413  rosrun tf tf_echo turtle1 turtle2
-  414  rosrun tf tf_echo camera_link camera_color_optical_frame
-  415  rosrun rviz rviz
-  416  rosrun rviz rviz -d `rospack find turtle_tf2`/rviz/turtle_rviz.rviz
-  417  rosrun rviz rviz
-  418  rosrun rqt_graph rqt_graph
-  419  python
-  420  roscd shutter_lookat
-  421  touch publish_target_relative_to_realsense_camera.py
-  422  ls
-  423  mv publish_target_relative_to_realsense_camera.py scripts/
+  295  sudo npm install npm@latest -g
+  296  sudo n stable
+  297  sudo npm install -g n
+  298  sudo n stable
+  299  nodejs --version
+  300  sudo apt-get update
+  301  sudo apt-et install build-essential checkinstall libssl-dev
+  302  sudo apt install build-essential checkinstall libssl-dev
+  303  nvm ls
+  304  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+  305  command -v nvm
+  306  nvm ls
+  307  nvm install stable
+  308  sudo nvm install stable
+  309  sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+  310  sudo export NVM_DIR="/home/miles/.nvm"
+  311  export
+  312  clear
+  313  sudo export NVM_DIR="/home/miles/.nvm"
+  314  sudo ls
+  315  clear
+  316  nvm install 
+  317  nvm install 8.16.0
+  318  nodejs --version
+  319  sudo chown -R $USER:$(id -gn $USER) /home/miles/.config
+  320  nvm install 8.16.0
+  321  nodehs --version
+  322  nodejs --version
+  323  docker-machine env dev
+  324  sudo snap install docker
+  325  docker-machine env dev
+  326  which VBoxManage 
+  327  groups $USER
+  328  sudo usermod -aG docker $USER
+  329  groups $USER
+  330  sudo snap remove docker
+  331  sudo apt-get remove docker docker-engine docker.io containerd runc
+  332  $ sudo apt-get update
+  333  sudo apt update
+  334  sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
+  335  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  336  sudo apt-key fingerprint 0EBFCD88
+  337  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  338     $(lsb_release -cs) \
+  339     stable"
+  340  sudo apt-get update
+  341  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  342  apt-cache madison docker-ce
+  343  sudo docker run hello-world
+  344  groups $USER
+  345  which VBoxManage 
+  346  base=https://github.com/docker/machine/releases/download/v0.16.0 &&   curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&   chmod +x /usr/local/bin/docker-machine
+  347  docker-machine version
+  348  docker-machine
+  349  reset
+  350  echo $HOST
+  351  bundle install
+  352  yarn install
+  353  sudo apt install cmdtest
+  354  gem install yarm
+  355  gem install yarn
+  356  yarn install
+  357  bundle exec yarn install
+  358  yarn
+  359  sudo apt install cmdtest
+  360  yarn install
+  361  clear
+  362  cp .env.template .env
+  363  rails db:create
+  364  yarn install
+  365  bundle install yarn
+  366  yarn --version
+  367  yarn install
+  368  rails db:create
+  369  yarn install --check-files
+  370  rails db:create
+  371  bundle install yarn
+  372  bundle install
+  373  bundle install --help
+  374  gem install yarn
+  375  rails db:create
+  376  yarn
+  377  reset
+  378  rails db:create
+  379  bundle install
+  380  bundle install | grep yarn
+  381  docker-compose build .
+  382  docker-compose build
+  383  echo $DOCKER_HOST
+  384  sudo docker-compose build
+  385  docker-compose up -d
+  386  docker-compose build
+  387  docker-machine start default
+  388  docker-machine ls
+  389  docker-machine --help
+  390  docker-machine create default
+  391  sudo apt install virtualbox
+  392  sudo docker-machine create default
+  393  docker-machine create default
+  394  reset
+  395  docker-machine create default
+  396  ddocker-compose up -d
+  397  docker-compose up -d
+  398  docker-machine create default
+  399  reset
+  400  docker-machine create default
+  401  rocker
+  402  docker-machine
+  403  base=https://raw.githubusercontent.com/docker/machine/v0.16.0
+  404  for i in docker-machine-prompt.bash docker-machine-wrapper.bash docker-machine.bash; do   sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d; done
+  405  docker-macine --version
+  406  docker-machine --version
+  407  sudo service docker status
+  408  sudo ls -la /var/run/docker.sock 
+  409  sudo usermod -aG docker ${USER}
+  410  reset
+  411  npm --version
+  412  sudo npm install yarn -g
+  413  yarn --version
+  414  cd Work/STC/vesta
+  415  cat .env
+  416  ls
+  417  cd ..
+  418  ls
+  419  cd /opt/
+  420  ls
+  421  cd ..
+  422  cd /usr/share/postgresql/8.4
+  423  cd /usr/share/postgresql
   424  ls
-  425  ls scripts/
-  426  nvim scripts/generate_target.py 
-  427  history | grep rqt
-  428  rosrun rqt_graph rqt_graph
-  429  history | grep frame
-  430  rosrun tf2_tools view_frames.py 
-  431  evince frames.pdf 
-  432  rosrun rqt_graph rqt_graph
-  433  roslaunch shutter_lookat generate_target.launch
-  434  nvim scripts/publish_target_relative_to_realsense_camera.py 
-  435  chmod +x scripts/publish_target_relative_to_realsense_camera.py 
-  436  cd ..
+  425  cd 10
+  426  ls
+  427  cat pg_hba.conf.sample 
+  428  cd ..
+  429  ls
+  430  cd 10
+  431  ls
+  432  cd main
+  433  sudo vim /etc/postgresql/10/main/pg_hba.conf 
+  434  ls
+  435  sudo vim /etc/postgresql/10/main/pg_hba.conf 
+  436  cd /etc/postgresql/10/main/
   437  ls
-  438  cd ..
-  439  ls
-  440  evince frames.pdf 
-  441  roslaunch shutter_lookat generate_target.launch
-  442  rosrun shutter_lookat publish_target_relative_to_realsense_camera.py 
-  443  rosrun tf tf_echo /camera_link /camera_color_optical_frame
-  444  rosrun tf tf_echo /cabase_footprint /camera_color_optical_frame
-  445  rosrun tf tf_echo /base_footprint /camera_color_optical_frame
-  446  rosrun shutter_lookat publish_target_relative_to_realsense_camera.py 
-  447  cd src/
-  448  ls
-  449  cd cpsc559-assignments/
-  450  ls
-  451  git status
-  452  git add assignment-3/shutter_lookat/scripts/publish_target_relative_to_realsense_camera.py 
-  453  git status
-  454  git add assignment-3/shutter_lookat/scripts/publish_target_relative_to_realsense_camera.py 
-  455  git status
-  456  git commit -m "hw3 pt 2 commit"
-  457  git push origin master
-  458  history | grep tf_echo
-  459  rosrun tf tf_echo /camera_link /camera_color_optical_frame
-  460  rosrun rqt_graph rqt_graph
-  461  history | grep view_frames
-  462  rosrun tf2_tools view_frames.py
-  463  cd ../..
-  464  ls
-  465  evince frames.pdf 
-  466  python3
-  467  pip3 install numpy
-  468  sudo apt install python3-pip
-  469  pip3 install numpy
-  470  python3
-  471  cd catkin_ws/src/cpsc559-assignments/
-  472  git pull upstream master
-  473  roscd shutter_bringup
-  474  git pull
-  475  cd ~/catkin_ws/
-  476  catkin_make -DCMAKE_BUILD_TYPE=Release
-  477  cd src/cpsc559-assignments/assignment-4/
-  478  ls
-  479  cd shutter_track_target && ls
-  480  mkdir msg
-  481  ls
-  482  cd msg/
-  483  nvim Observation.msg
+  438  vim pg_hba.conf 
+  439  sudo vim pg_hba.conf 
+  440  unfreeze-touchpad 
+  441  cd /var/lib/postgresql
+  442  ls
+  443  cd 10
+  444  ls
+  445  cd main
+  446  ls
+  447  sudo cd main
+  448  sudo su #
+  449  unfreeze-touchpad 
+  450  bluetoothctl 
+  451  bluetoothctl
+  452  sudo apt install bluez-hid2hci
+  453  bluez-hid2hci
+  454  snap install bluez
+  455  snap interfaces | grep blue
+  456  bluetoothctl 
+  457  pacman
+  458  sudo apt install pacman
+  459  pacman
+  460  bluez-hid2hci
+  461  blueman
+  462  pulseaudio -k
+  463  sudo apt install pulseaudio-module-bluetooth
+  464  sudo apt autoremove
+  465  bluetoothctl
+  466  sudo service bluetooth restart
+  467  bluetoothctl
+  468  pulseaudio --start
+  469  sudo apt-get install ofono
+  470  bluetoothctl
+  471  source devel/setup.sh
+  472  roslaunch sailbot sim_launch.launch 
+  473  rosrun simulator sim_runner.py
+  474  rosrun speed_calculator speed_calculator_runner.py
+  475  rosrun sails_rudder sails_rudder_runner.py
+  476  rosrun tactics tactics_runner.py
+  477  rosrun captain captain_runner.py
+  478  rosrun captain sim_helper.py
+  479  freeze-touchpad 
+  480  clear
+  481  cd Groups/sailbot-inve/
+  482  ls
+  483  cd sailbot
   484  ls
-  485  cd ..
+  485  cd scripts/
   486  ls
-  487  nvim package.xml 
-  488  nvim CMakeLists.txt 
-  489  cd ~/catkin_ws/
-  490  catkin_make -DCMAKE_BUILD_TYPE=Release
-  491  rosmsg show shutter_track_target/Observation
-  492  cd src/cpsc559-assignments/
-  493  git status
-  494  git add assignment-4/shutter_track_target/CMakeLists.txt 
-  495  git add assignment-4/shutter_track_target/package.xml 
-  496  git add assignment-4/shutter_track_target/msg/Observation.msg 
-  497  git status
-  498  git commit -m "added Observation msg"
-  499  git push
-  500  kazam
-  501  rosrun rqt_image_view rqt_image_view
-  502  cd catkin_ws/src/cpsc559-assignments/
-  503  git pull upstream master
-  504  git status
-  505  git push
-  506  roscd shutter_track_target
-  507  mkdir data
-  508  cd data
-  509  mv ~/Downloads/left-seq1.bag .
-  510  ls
-  511  rosbag info left-seq1.bag 
-  512  rosparam set use_sim_time true
-  513  rosbag play --clock left-seq1.bag 
-  514  rosparam set use_sim_time true
-  515  rosbag play --clock left-seq1.bag 
-  516  ls
-  517  rosbag play --clock left-seq1.bag 
-  518  roscd image_view
-  519  rosmake image_view
-  520  sudo apt install mjpegtools
-  521  cd ~/catkin_ws/
-  522  cd ~
-  523  vim export.launch
-  524  history | grep kazam
-  525  kazam
-  526  rosbag play --clock left-seq1.bag 
-  527  roscd shutter_track_target
-  528  rosbag play --clock left-seq1.bag 
-  529  ls
-  530  cd data
-  531  rosbag play --clock left-seq1.bag 
-  532  cd ..
-  533  ls
-  534  mkdir docs
-  535  ls
-  536  cd docs
-  537  cp ~/Pictures/input.gif .
-  538  ls
-  539  ls -l input.gif 
-  540  cd ..
-  541  git status
-  542  git add docs/input.gif
-  543  git status
-  544  git commit -m "added input.gif to shutter_track_target documentation"
-  545  git push
-  546  roscore &
-  547  cd ~/Videos/
-  548  mkdir frames
-  549  ffmpeg -i input.mp4 -qscale:v 5 -r 5 'frames/frame-%03d.jpg'
-  550  ls frames/
-  551  cd frames/
-  552  convert -delay 20 -look 0 *.jpg input.gif
-  553  convert -delay 20 -loop 0 *.jpg input.gif
-  554  mv input.gif ~/Pictures/
-  555  ls ~/Pictures/
-  556  rosrun rqt_image_view rqt_image_view
-  557  rosparam set use_sim_time true
-  558  rosbag play --clock data/left-seq1.bag 
-  559  roscure
-  560  roscore
-  561  cd catkin_ws/
-  562  roscd shutter_lookat_target
-  563  roscd shutter_track_target
-  564  nvim scripts/detect_visual_target.py 
-  565  git status
-  566  git add scripts/detect_visual_target.py 
+  487  cd 
+  488  cd -
+  489  cd ..
+  490  ls
+  491  cd launch/
+  492  ls
+  493  ./SimLaunch.sh
+  494  rosrun simulator sim_runner.py
+  495  rosrun speed_calculator speed_calculator_runner.py
+  496  rosrun sails_rudder sails_rudder_runner.py
+  497  rosrun tactics tactics_runner.py
+  498  rosrun captain captain_runner.py
+  499  rosrun captain sim_helper.py
+  500  rosrun rosbridge_server rosbridge_websocket
+  501  git status
+  502  git add .
+  503  git commit -m "Implement jibing (again)"
+  504  git pull
+  505  cd Groups/sailbot-inve/
+  506  cd sailbot
+  507  cd launch/
+  508  source ../devel/setup.sh
+  509  ./SimLaunch.sh
+  510  roslaunch sailbot sim_launch.launch 
+  511  clear
+  512  cd 
+  513  unfreeze-touchpad 
+  514  freeze-touchpad 
+  515  tmux ls
+  516  ssh zoo
+  517  clear
+  518  cd Desktop/
+  519  ls
+  520  scp hw3.README zoo:~/cs470/hw3/hw3.README
+  521  clear
+  522  cd ../Work/STC/stc-scheduler/
+  523  ls
+  524  rails s
+  525  rails c
+  526  rosrun rosbridge_server rosbridge_websocket
+  527  cd sailbot
+  528  source devel/setup.sh
+  529  roslaunch sailbot sim_launch.launch 
+  530  cd sailbot-dash/
+  531  ls
+  532  npm start
+  533  roscore
+  534  cd -
+  535  cd Work/STC/stc-scheduler/
+  536  rails s
+  537  ps
+  538  pps
+  539  git status 
+  540  clear
+  541  rails c
+  542  git status
+  543  git add .
+  544  git status
+  545  git commit -m "Add specs; remove availability functionality"
+  546  git push
+  547  rake check_style
+  548  rubocop
+  549  rubocop -D
+  550  git add .
+  551  git commit -m "Style fixes"
+  552  git push
+  553  rubocop -D
+  554  git add .
+  555  git commit -m "Fix one more style check"
+  556  git push
+  557  rspec
+  558  ls
+  559  cd Work/STC/stc-scheduler/
+  560  rails s
+  561  ls
+  562  source devel/setup.sh
+  563  roslaunch sailbot sim_launch.launch 
+  564  reset
+  565  source sailbot/devel/setup.sh
+  566  rosrun rosbridge_server rosbridge_websocket
   567  git status
-  568  git commit -m "added hsv masking"
-  569  git push
-  570  rosrun shutter_track_target detect_visual_target.py 
-  571  git status
-  572  rosrun shutter_track_target detect_visual_target.py 
-  573  rosrun rqt_image_view rqt_image_view
-  574  history | grep bag
-  575  rosbag play --clock data/left-seq1.bag 
-  576  python
-  577  roscd shutter_track_target
-  578  nvim scripts/detect_visual_target.py 
-  579  kazam
-  580  cd ~/Videos/
-  581  ls
-  582  mkdir frames
-  583  mv 'Screencast 2020-10-14 16:08:56.mp4' movie.mp4
-  584  ls
-  585  ffmpeg -i movie.mp4 -qscale:v 5 -r 5 'frames/frame-%03d.jpg'
-  586  ls frames/
-  587  cd frames
-  588  convert -delay 20 loop 0 *.jpg keypoints.gif
-  589  roscd shutter_track_target
-  590  ls
-  591  ls docs/
-  592  cd docs
-  593  cp ~/Videos/frames/keypoints.gif .
-  594  ls
-  595  git status
-  596  git add keypoints.gif 
-  597  git status
-  598  git commit -m "added keypoints animation"
-  599  git push
-  600  rosparam set use_sim_time true
-  601  rosbag play --clock data/left-seq1.bag 
-  602  git status
-  603  git add scripts/detect_visual_target.py 
-  604  git commit -m "added simple blob detector"
-  605  rosbag play --clock data/left-seq1.bag 
-  606  git status
-  607  git commit scripts/detect_visual_target.py 
-  608  git status
-  609  git add scripts/detect_visual_target.py 
-  610  git commit -m "added publish_observation"
-  611  git status
-  612  rosbag play --clock data/left-seq1.bag 
-  613  rosrun shutter_track_target detect_visual_target.py 
-  614  rosrun rqt_graph rqt_graph
-  615  rostopic echo /observation_image
-  616  rosmsg show Observation
-  617  rosrun rqt_graph rqt_graph
-  618  rostopic echo /observation_image
-  619  rostopic echo /rosout
-  620  rosrun rqt_graph rqt_graph
-  621  rostopic echo /observation
-  622  rosrun rqt_image_view rqt_image_view
-  623  roscore
-  624  python
-  625  python
-  626  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  627  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 
-  628  history | grep test
-  629  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  630  ls
-  631  history | grep roslaunch
-  632  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  633  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 frame_rate:=20
-  634  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 frame_rate:=20 add_observation_noise:=true
-  635  git status
-  636  git add shutter_track_target/scripts/kalman_filter.py 
-  637  roslaunch shutter_track_target filter_colored_target.launch add_observation_noise:=true
-  638  git status
-  639  git add shutter_track_target/launch/filter_colored_target.launch 
-  640  git commit -m "initial question 4 commit - tracking with Kalman filter"
-  641  git push
-  642  rosrun rqt_graph rqt_graph
-  643  cd catkin_ws/src/cpsc559-assignments/
-  644  git pull upstream
-  645  git pull upstream master
-  646  cd assignment-4
-  647  rostest shutter_track_target_public_tests test_kalman_filter.launch
-  648  vim ~/.ros/log/rostest-thinkpad-22985.log 
-  649  history
-  650  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  651  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.1
-  652  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  653  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  654  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  655  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  656  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  657  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  658  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.1
-  659  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  660  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.1
-  661  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  662  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.15
-  663  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  664  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  665  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  666  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  667  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  668  cd catkin_ws/src/cpsc559-assignments/
-  669  git status
-  670  git add assignment-4/shutter_track_target/scripts/kalman_filter.py 
-  671  git commit -m "refined filter parameters to track without noise"
-  672  git push
-  673  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  674  python
-  675  roscore
-  676  rosrun rqt_viz rqt_viz
-  677  history | grep rqt
-  678  rosrun rqt_graph rqt_graph
-  679  ls shutter_track_target/data/
-  680  rosbag info shutter_track_target/data/track_target.bag 
-  681  rosbag play shutter_track_target/data/track_target.bag 
-  682  roslaunch shutter_track_target record_bag.launch
-  683  rostest shutter_track_target_public_tests test_bag_recording.launch
-  684  rosrun shutter_track_target detect_visual_target.py
-  685  rosrun shutter_track_target detect_visual_target.py lower_hue_value:=75 upper_hue_value:=135
-  686  osrun shutter_track_target detect_visual_target.py _lower_hue_value:=75 _upper_hue_value:=135
-  687  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=75 _upper_hue_value:=135
-  688  osrun shutter_track_target detect_visual_target.py _lower_hue_value:=65 _upper_hue_value:=125
-  689  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=65 _upper_hue_value:=125
-  690  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=80 _upper_hue_value:=120
-  691  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=55 _upper_hue_value:=100
-  692  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=70 _upper_hue_value:=90
-  693  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=79 _upper_hue_value:=85
-  694  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=32 _upper_hue_value:=52
-  695  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=32 _upper_hue_value:=45
-  696  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=150 _upper_hue_value:=179
-  697  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=32 _upper_hue_value:=45
-  698  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=150 _upper_hue_value:=179
-  699  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=0 _upper_hue_value:=20
-  700  rosrun shutter_track_target detect_visual_target.py _lower_hue_value:=32 _upper_hue_value:=45
-  701  rosrun shutter_track_target detect_visual_target.py
-  702  rosrun shutter_track_target kalman_filter.py
-  703  rosrun shutter_track_target detect_visual_target.py
-  704  rosrun shutter_track_target kalman_filter.py
-  705  python
-  706  rosrun rqt_image_view rqt_image_view 
-  707  roslaunch shutter_track_target filter_colored_target.launch
-  708  rosrun rqt_image_view rqt_image_view 
-  709  kazam
-  710  python
-  711  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  712  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  713  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  714  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  715  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25 add_observation_noise:=true
-  716  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.25
-  717  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  718  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  719  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  720  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2
-  721  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2 add_observation_noise:=true
-  722  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2
-  723  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2 add_observation_noise:=true
-  724  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2
-  725  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  726  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2 add_observation_noise:=true
-  727  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  728  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  729  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  730  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  731  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  732  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2
-  733  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2 add_observation_noise:=true
-  734  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  735  roslaunch shutter_track_target filter_colored_target.launch add_observation_noise:=true
-  736  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5 add_observation_noise:=true
-  737  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.2 add_observation_noise:=true
-  738  cd catkin_ws/src/cpsc559-assignments/
-  739  git status
-  740  git add assignment-4/shutter_track_target/scripts/kalman_filter.py 
-  741  git commit -m "modified vector construction, added noise to measurement model, filter for noise"
-  742  git push
-  743  roslaunch shutter_track_target play_video.launch video_file:=~/cpsc559.mp4
-  744  roslaunch shutter_track_target play_video.launch video_file:=/home/alew/cpsc559.mp4
-  745  cd assignment-4/
-  746  ls
-  747  ls shutter_track_target
-  748  ls shutter_track_target/launch/
-  749  vim shutter_track_target/launch/filter_colored_target.launch 
-  750  roslaunch shutter_track_target play_video.launch video_file:=/home/alew/cpsc559.mp4
-  751  roslaunch shutter_track_target filter_colored_target.launch playback_speed:=0.5
-  752  roslaunch shutter_track_target play_video.launch video_file:=/home/alew/cpsc559.mp4
-  753  roslaunch shutter_track_target filter_colored_target.launch
-  754  roslaunch shutter_track_target filter_colored_target.launch add_observation_noise:=true
-  755  roslaunch shutter_track_target filter_colored_target.launch bagfile:=shutter_track_target/data/track_target.bag
-  756  ls
-  757  ls shutter_track_target
-  758  ls shutter_track_target/data/
-  759  roslaunch shutter_track_target filter_colored_target.launch bagfile:=shutter_track_target/data/track_target.bag
-  760  ls -lshutter_track_target/data/
-  761  ls -l shutter_track_target/data/
-  762  sudo chmod g+w shutter_track_target/data/track_target.bag 
-  763  roslaunch shutter_track_target filter_colored_target.launch bagfile:=./shutter_track_target/data/track_target.bag
-  764  roslaunch shutter_track_target filter_colored_target.launch bagfile:=/home/alew/catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/data/track_target.bag
-  765  history | grep rosbag
-  766  rosbag play --clock shutter_track_target/data/track_target.bag 
-  767  cd ~/Videos/
-  768  ls
-  769  ffmpeg -i new_object.mp4 -qscale:v 5 -r 5 'frames/frame-%03d.jpg'
-  770  ls frames/
-  771  cd frames/
-  772  convert -delay 20 -loop 0 frame-001.jpg new_object.git
-  773  convert -delay 20 -loop 0 frame-001.jpg new_object.gif
-  774  ls
-  775  rm new_object.git 
-  776  cp new_object.gif ~/catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/docs/
-  777  ls ~/catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/docs/
-  778  rm new_object.giF
-  779  rm new_object.gif
-  780  convert -delay 20 -loop 0 *.jpg new_object.gif
-  781  cp new_object.gif ~/catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/docs/
-  782  cd ~/Videos/
-  783  rm -rf frames/
-  784  mkdir frames
-  785  ffmpeg -i movie_2.mp4 -qscale:v 5 -r 5 'frames/frame-%03d.jpg'
-  786  cd frames/
-  787  convert -delay 20 -loop 0 *.jpg filtered_blue_square_with_extra_noise.gif
-  788  cd ~
-  789  ls
-  790  mv filtered_blue_square_with_extra_noise.gif catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/docs/
-  791  cd ~/catkin_ws/src/cpsc559-assignments/assignment-4/shutter_track_target/docs/
-  792  ls
-  793  git status
-  794  git add filtered_blue_square_with_extra_noise.gif 
-  795  git commit -m "added extra noise animation"
-  796  git push
-  797  cd ..
-  798  git status
-  799  git add README.md 
-  800  git status
-  801  git add docs/new_object.gif 
-  802  git commit -m "added readme for package shutter_track_target"
-  803  git push
-  804  git status
-  805  git add README.md 
-  806  git commit -m "fixed gifs in shutter_track_target reamde"
-  807  git push
-  808  git status
-  809  git add docs/new_object.gif 
-  810  git commit -m "fixed new_object.gif for shutter_track_target documentation"
-  811  git push
-  812  rosrun rqt_image_view rqt_image_view
-  813  roscore
-  814  history | grep ffmpeg
-  815  man history
-  816  history
-  817  cd Desktop/tmp/
-  818  ls
-  819  convert -delay 20 -loop *.jpg solar.gif
-  820  ls
-  821  convert -delay 20 -loop 0 *.jpg solar.gif
+  568  cd sailbot
+  569  git status
+  570  git add .
+  571  git commit -m "Pull in sails when jibing; make smarter decisions on the first tack"
+  572  git push
+  573  cd Groups/sailbot-inve/
+  574  cd sailbot
+  575  ssh edison@192.168.0.98
+  576  cd ~/Work/STC/stc-scheduler/
+  577  rails s
+  578  cd ~/Music/music_dl/
+  579  ls
+  580  ./dl.py 
+  581  nodejs 
+  582  nodejs --version
+  583  s ~/.bashrc 
+  584  reset
+  585  clear
+  586  npx
+  587  ls
+  588  cd StudioProjects/
+  589  npx react-native init ExampleProject
+  590  cd ExampleProject/
+  591  npx react-native run-android
+  592  minecraft-launcher 
+  593  top
+  594  sudo apt upgrade
+  595  python3 spin.py 
+  596  cd Academics/CPSC_470/
+  597  ;s
+  598  ls
+  599  python3 hw5.py 
+  600  scp zoo:/c/cs470/hws/aima/mdp.py mdp.py
+  601  python3 hw5.py 
+  602  scp zoo:/c/cs470/hws/aima/mdp.py mdp.py
+  603  python3 hw5.py 
+  604  scp ./hw5.py zoo:~/hw5.py
+  605  scp ~/Downloads/hw5.pdf zoo:~/hw5.pdf
+  606  ssh zoo
+  607  sudo pip3 install matplotlib
+  608  sudo pip install matplotlib
+  609  sudo apt install pip3
+  610  pip3
+  611  sudo apt install python3-pip
+  612  pip3
+  613  apt install python3-pip
+  614  sudo apt install python3-pip
+  615  which pip3
+  616  sudo apt remove python3-pip
+  617  sudo apt install pip3
+  618  sudo apt install python3-pip
+  619  pip3
+  620  sudo pip3 install matplotlib
+  621  pip3 install matplotlib
+  622  python3
+  623  sudo pip uninstall nump
+  624  top
+  625  mtp-connect 
+  626  sync
+  627  man sync
+  628  sync
+  629  ps -a | grep sync
+  630  skill -9 5216
+  631  ps -a | grep sync
+  632  nmap
+  633  sudo snap install nmap
+  634  ifconfic
+  635  ifconfig
+  636  nmap -sP 192.168.86.43/24
+  637  ssh miles@192.168.86.37
+  638  ssh commandm@192.168.86.37
+  639  ssh miles@192.168.86.37
+  640  ls
+  641  scp -r Music/ miles@192.168.86.37:~/Music
+  642  scp -r Music/music_dl/music_list.txt miles@192.168.86.37:~/Music/music_dl/music_list.txt
+  643  scp Music/music_dl/music_list.txt miles@192.168.86.37:~/Music/music_dl/music_list.txt
+  644  cd Music/music_dl/
+  645  ./dl.py 
+  646  youtube-dl -U
+  647  sudo youtube-dl -U
+  648  ./dl.py 
+  649  scp -r Music/ miles@192.168.86.37:~/Music
+  650  cdd ../..
+  651  cd ../..
+  652  scp -r Music/ miles@192.168.86.37:~/Music
+  653  cd Academics/CPSC_470/hw7/
+  654  jupyter notebook hw7.ipynb 
+  655  freeze-touchpad 
+  656  ssh zoo
+  657  ls
+  658  scp hw7.ipynb zoo:~/hw7.ipynb
+  659  ssh zoo
+  660  cd IdeaProjects/path_coverage_simulator/
+  661  git pull
+  662  git pull origin master
+  663  git pull gitlab master
+  664  bluetoothctl 
+  665  sudo apt-get install pulseaudio-module-bluetooth
+  666  sudo apt-get update pulseaudio-module-bluetooth
+  667  sudo apt-get install pulseaudio-module-bluetooth --fix-missing
+  668  sudo apt-get update
+  669  sudo apt-get install pulseaudio-module-bluetooth --fix-missing
+  670  bluetoothctl 
+  671  bluetoothctl
+  672  bluetoothctl 
+  673  maven
+  674  mvn
+  675  cd IdeaProjects/path-coverage-simulator-v2/
+  676  mvn install
+  677  ls
+  678  cd path-coverage-simulator-master/
+  679  mvn install
+  680  git rm -r --cached target/
+  681  git rm -r --cached .idea/
+  682  bluetoothctl 
+  683  ls
+  684  cd IdeaProjects/path_coverage_simulator_2/
+  685  git remote list
+  686  git remote
+  687  git remote origin
+  688  git remote get-url remote
+  689  git remote get-url origin
+  690  git remote
+  691  git remote list
+  692  git remote add
+  693  git remote add gitlab https://gitlab.com/miles.krusniak/path-coverage-simulator
+  694  git rebase -i HEAD~2
+  695  git rebase -i HEAD~3
+  696  git rebase -i HEAD~2
+  697  git rebase -i HEAD~3
+  698  git log
+  699  git rebase -i 4b9a0502693e12cfbf998ba85d30163d92a07427
+  700  git log
+  701  git rebase -i HEAD~2
+  702  git add *
+  703  git fork
+  704  cd Downloads/
+  705  mkdir test_pcs
+  706  cd test_pcs/
+  707  git clone https://gitlab.com/miles.krusniak/path-coverage-simulator
+  708  ls
+  709  cd path-coverage-simulator/
+  710  ls
+  711  mvn 
+  712  ls
+  713  mvn build
+  714  mvn help
+  715  mvn --help
+  716  mvn
+  717  maven compile
+  718  mvn compile
+  719  mvn deploy
+  720  ls
+  721  maven package
+  722  mvn package
+  723  ls
+  724  cd target/
+  725  ls
+  726  cd ..
+  727  git status
+  728  cd target/
+  729  ls
+  730  java -jar path_coverage_sim-1.0-SNAPSHOT.jar 
+  731  cd ..
+  732  mvn
+  733  mvn compile
+  734  mvn exec:java
+  735  bluetoothctl 
+  736  minecraft-launcher 
+  737  xdotool click
+  738  bluetoothctl 
+  739  cd Desktop/
+  740  git clone https://github.com/KaptainWutax/SeedCracker
+  741  ls
+  742  cd SeedCracker/
+  743  ls
+  744  gradle
+  745  gradlew genSoruces idea
+  746  sudo apt install gradle
+  747  gradlew genSoruces idea
+  748  gradle
+  749  bluetoothctl 
+  750  freeze-touchpad 
+  751  bluetoothctl
+  752  R --version
+  753  R --help
+  754  cd catkin_ws/
+  755  ls
+  756  cd src
+  757  sudo apt update
+  758  ls
+  759  sudo rosdep update
+  760  rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  761  cd ..
+  762  cd catkin_ws/
+  763  rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  764  sudo rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  765  sudo apt install ros-melodic-dynamixel-sdk
+  766  sudo apt install ros-melodic-dynamixel-sdk --fix-missing
+  767  subl /etc/apt/source.list
+  768  roscore --version
+  769  rosdep --version
+  770  sudo rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  771  sudo pip uninstall rosdep
+  772  pip uninstall rosdep
+  773  sudo pip uninstall rosdep
+  774  sudo nautilus
+  775  sudo pip uninstall rosdep
+  776  pip uninstall rosdep
+  777  sudo rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  778  sudo apt install python-rosdep
+  779  sudo rosdep init
+  780  sudo apt uninstall rosdep
+  781  sudo apt remove python-rosdep
+  782  sudo apt install python-rosdep
+  783  sudo rosdep init
+  784  sudo apt install ros-melodic-desktop-full 
+  785  sudo apt remove ros-melodic-*
+  786  sudo apt install ros-melodic-desktop-full
+  787  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+  788  sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+  789  sudo apt update
+  790  sudo apt install ros-melodic-desktop-full
+  791  rosdep init
+  792  source /opt/ros/melodic/setup.bash
+  793  sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+  794  sudo rosdep init
+  795  sudo apt-get remove ros-*
+  796  pip uninstall ros
+  797  pip uninstall ros-*
+  798  sudo pip uninstall ros
+  799  rosdep
+  800  pip uninstall rosdep
+  801  sudo rm /usr/bin/rosdep
+  802  sudo rm /usr/bin/rosdep-source 
+  803  sudo rm /usr/lib/python2.7/dist-packages/rosdep-0.19.0.egg-info/
+  804  sudo rm -r /usr/lib/python2.7/dist-packages/rosdep-0.19.0.egg-info/
+  805  ls
+  806  pip uninstall rosdep
+  807  rosdep
+  808  sudo apt install ros-melodic-desktop-full 
+  809  sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+  810  rosdep init
+  811  sudo rosdep init
+  812  sudo apt install python-rosdep
+  813  rosdep
+  814  sudo apt install python-rosdep
+  815  sudo apt remove python-rosdep
+  816  sudo apt install python-rosdep
+  817  sudo rosdep init
+  818  which rosdep
+  819  echo $PWD
+  820  ssh zoo
+  821  cd catkin_ws/
   822  ls
-  823  ls *.gif
-  824  convert -delay 20 -loop 0 *.jpg solar.gif
-  825  man convert
-  826  convert  -loop 0 *.jpg solar.gif
-  827  ls
-  828  ls .gif
-  829  ls *.gif
-  830  rm solar.gif 
-  831  convert -delay 1 -loop 0 *.jpg solar.gif
-  832  rm solar.gif 
-  833  convert -delay 1 -loop 0 *.jpg solar.gif
-  834  rm solar.gif 
-  835  convert -delay 1 -loop 0 *.jpg solar.gif
-  836  rm solar.gif 
-  837  convert -delay 1 -loop 0 *.jpg solar.gif
-  838  ls
-  839  git status
-  840  git add train_and_test_saddle_function.py 
-  841  git commit -m "completed nonlinear model"
-  842  ls ~/Downloads/
-  843  mv ~/Downloads/64x64_data.npz ../face_detection/
-  844  ls ../face_detection/
-  845  cd ../face_detection/
-  846  python
-  847  ./train_face_detection.py --input 64x64_data.npz 
-  848  git status
-  849  roscd shutter_bringup
-  850  git pull
-  851  cd ~/catkin_ws/
-  852  catkin_make -DCMAKE_BUILD_TYPE=Release
-  853  python
-  854  cd ../face_detection/
-  855  cd src/cpsc559-assignments/assignment-5/face_detection/
-  856  ls
-  857  python
-  858  ls
-  859  ls logs/
-  860  ls logs/log_11-09-2020-21-08
-  861  ls logs/log_11-09-2020-21-08/train
-  862  ls ../function_approximation/logs/log_11-08-2020-10-24/
-  863  ls
-  864  history | grep board
-  865  ls logs/log_11-09-2020-21-06
-  866  ls logs/
-  867  ls logs/log_11-10-2020-08-43
-  868  ls logs/log_11-10-2020-01-00/
-  869  ls logs/log_11-10-2020-01-00/train/
-  870  git status
-  871  git add train_face_detection.py 
-  872  git commit -m "implemented tiny darknet for face detection"
-  873  ls
-  874  ./evaluate_face_detection.py 
-  875  ./evaluate_face_detection.py --input 64x64_data.npz --weights-path ~/Downloads/logs/log_11-10-2020-16-38/weights.h5 
-  876  python
-  877  ls
-  878  cd ..
-  879  ls
-  880  ls logs/
-  881  rm -rf logs/
-  882  mv shutter_cloning.h5 shutter_behavior_cloning/
-  883  cd shutter_behavior_cloning/
-  884  ls
-  885  ls scripts/
-  886  ls src/
-  887  ls
-  888  ls launch/
-  889  ls data/
-  890  ls logs/
-  891  ls scripts/
-  892  ls src/
-  893  ls test/
+  823  rosdep update
+  824  pip3 uninstall rosdep
+  825  pip uninstall rosdep
+  826  sudo pip uninstall rosdep
+  827  apt-get remove --purge python-pip
+  828  sudo apt-get remove --purge python-pip
+  829  ps -a
+  830  sudo apt-get remove --purge python-pip
+  831  sudo curl https://bootstrap.pypa.io/get-pip.py | sudo python
+  832  sudo pip uninstall rosdep
+  833  roscode
+  834  roscore
+  835  rostopic info /joint_states
+  836  rosmsg info 
+  837  rosms --help
+  838  rosmsg --help
+  839  rosmsg list
+  840  rosmsg show sensor_msgs/JointState
+  841  rostopic echo /joint_states 
+  842  rostopic hz /joint_states /
+  843  rostopic hz /joint_states
+  844  rosnode info arbotix
+  845  rosrun rviz rviz
+  846  rqt_graph
+  847  rosrun arbotix_python arbotix_gui 
+  848  sudo pip --version
+  849  sudo pip uninstall rosdep
+  850  sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+  851  sudo rosdep init
+  852  rosdep init
+  853  sudo apt remove ros-*
+  854  sudo pip uninstall rosdep
+  855  y
+  856  pip uninstall rosdep
+  857  rosdep
+  858  apt remove ros-*
+  859  sudo apt install ros-melodic-desktop-full 
+  860  sudo apt update
+  861  rosdep
+  862  echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+  863  source ~/.bashrc
+  864  source /opt/ros/melodic/setup.bash 
+  865  subl ~/.bashrc
+  866  source /opt/ros/melodic/setup.bash 
+  867  source ~/.bashrc
+  868  sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+  869  sudo apt install python-rosdep
+  870  sudo rosdep init
+  871  sudo apt remove python-rosdep
+  872  sudo apt install python-rosdep
+  873  sudo rosdep init
+  874  source ~/.bashrc
+  875  sudo rosdep init
+  876  rosdep update
+  877  which rosdep
+  878  apt-cache policy python-roslaunch
+  879  which python
+  880  pip uninstall rosdistro
+  881  sudo pip uninstall rosdistro
+  882  rosdep update
+  883  cd catkin_ws/
+  884  rosdep update
+  885  source ~/.bashrc
+  886  sudo source ~/.bashrc
+  887  sudo rosdep update
+  888  rosdep update
+  889  sudo apt remove rosdep
+  890  sudo pip install -U rosdep
+  891  rosdep update
+  892  rosdep install -y -r --ignore-src --rosdistro=melodic --from-paths src
+  893  catkin_make -DMAKE_BUILD_TYPE=Release
   894  ls
-  895  ls scripts/
-  896  ls logs/
-  897  rm -rf logs/
-  898  ls ..
-  899  cd scripts/
-  900  ls
-  901  ./learn_policy.py ../data/state_action.txt 
-  902  ls
-  903  rm -rf logs/
-  904  ./learn_policy.py ../data/state_action.txt 
-  905  ls logs/
-  906  ./learn_policy.py ../data/state_action.txt 
-  907  ls
-  908  ls -l shutter_cloning.h5 
-  909  ./learn_policy.py ../data/state_action.txt 
-  910  ls Downloads/
-  911  rm Downloads/archive2.zip 
-  912  rm -rf Downloads/logs/
-  913  unzip Downloads/archive.zip 
-  914  ls
-  915  mv logs/ Downloads/
-  916  ls
-  917  ls Downloads/
-  918  ls Downloads/logs/
-  919  ls Downloads
-  920  rm Downloads/archive.zip 
-  921  unzip Downloads/archive.zip Downloads/logs
-  922  rm -rf Downloads/logs/
-  923  unzip Downloads/archive(1).zip Downloads
-  924  unzip 'Downloads/archive(1).zip' Downloads
-  925  unzip 'Downloads/archive(1).zip' Downloads/
-  926  ls
-  927  ls Downloads/
-  928  mv 'Downloads/archive(1).zip' Downloads/archive.zip
-  929  ls Downloads/
-  930  unzip Downloads/archive.zip 
-  931  ls
-  932  mv logs/ Downloads/
-  933  ls Downloads/
-  934  ls Downloads/logs/
-  935  cd catkin_ws/src/cpsc559-assignments/assignment-5/
+  895  echo "source ~/catkin_ws/devel/setup.bash"
+  896  ls
+  897  source devel/setup.bash
+  898  source devel/setup.sh
+  899  roslaunch shutter_bringup shutter_sim.launch 
+  900  rostopic list
+  901  rostopic echo joint_states
+  902  rostopic echo /joint_1/command
+  903  rostopic echo /joint_4/command
+  904  rostopic echo /joint_1/command
+  905  rostopic echo /joint_2/command
+  906  rostopic echo /joint_3/command
+  907  rostopic echo /joint_4/command
+  908  rostopic pub /joint_1/command std_msgs/Float64 "data: 1.0" 
+  909  htop
+  910  cd ~/Desktop/
+  911  ls
+  912  mkdir frames
+  913  ffmpeg -i animation.mp4 -qscale:v 5 -r 5 'frames/frame-%03d.jpg'
+  914  ls frames/
+  915  cd frames
+  916  convert --help
+  917  convert -delay 20 -loop 0 *.jpg pose_animation.gif
+  918  ls
+  919  cp pose_animation.gif ~/catkin_ws/src/cpsc459-assignments/assignment-2/shutter_poses
+  920  git add .
+  921  sudo apt install latex
+  922  sudo apt install texlive-full
+  923  pdflatex
+  924  cd Academics/EENG_200/
+  925  subl eeng_lab_1.tex
+  926  pdflatex eeng_lab_1.tex 
+  927  texi2pdf eeng_lab_1.
+  928  texi2pdf eeng_lab_1.tex 
+  929  sudo apt install gummi
+  930  ssh zoo
+  931  cd ..
+  932  ls
+  933  cd CPSC_223/
+  934  ls
+  935  cd hw_4
   936  ls
-  937  cd face_detection/
-  938  ls
-  939  ./evaluate_face_detection.py --input 64x64_data.npz --weights-path ~/Downloads/logs/log_11-10-2020-17-10/weights.h5 
-  940  cp ~/Downloads/logs/log_11-10-2020-17-10/weights.h5 ~/Desktop/
-  941  ls ~/Desktop/
-  942  ls
-  943  ./download_weights.py
-  944  python download_weights.py
-  945  ls
-  946  rm weights.h5 
-  947  git status
-  948  git add download_weights.py 
-  949  git commit -m "updated weights path url for face detection"
-  950  python
-  951  python download_weights.py
+  937  ls -a
+  938  cd .git
+  939  ls
+  940  cd hooks/
+  941  ls
+  942  cat commit-msg
+  943  cd ..
+  944  ls
+  945  cd ..
+  946  git remote lost
+  947  git remote
+  948  git remote list
+  949  ls
+  950  cd ..
+  951  cd hw_5
   952  ls
-  953  ./evaluate_face_detection.py 
-  954  ./evaluate_face_detection.py --input 64x64_data.npz --weights-path ./weights.h5 
-  955  git status
-  956  git add download_weights.py 
-  957  git commit -m "updated weights url"
-  958  git status
-  959  git add train_face_detection.py 
-  960  git commit -m "fixed validation splitting and generalized input shape"
-  961  cp evaluate_face_detection.py plot_roc_curve.py
-  962  ls
-  963  ./plot_roc_curve.py --input 64x64_data.npz --weights ./weights.h5 
-  964  ls
-  965  ls ../docs/
-  966  ./window_detection.py --input ../docs/cs50_2.jpg --weights-path weights.h5 
-  967  ./window_detection.py --input ../docs/shaocrew_0.jpg --weights-path weights.h5 
-  968  git status
-  969  git add plot_roc_curve.py window_detection.py 
-  970  git commit -m "added ROC computation and initial sliding window"
-  971  ./window_detection.py --input ../docs/cs50_2.jpg --weights-path weights.h5 
-  972  git status
+  953  cd .git/
+  954  ls
+  955  cd hooks/
+  956  ls
+  957  cat commit-msg
+  958  cd ../..
+  959  cd ..
+  960  cd hw_6/
+  961  cd .git/hooks/
+  962  ;s
+  963  ls
+  964  cat commit-msg
+  965  subl commit-msg
+  966  cd ..
+  967  git remote
+  968  cd ..
+  969  cd hw_6
+  970  git remote zoo
+  971  git remote get-url
+  972  git remote get-url zoo
   973  cd ..
-  974  git status
-  975  cd face_detection/
-  976  ./plot_roc_curve.py --input 64x64_data.npz --weights-path weights.h5 
-  977  ./window_detection.py --input ../docs/shaocrew_0.jpg --weights-path weights.h5 
-  978  cd ..
-  979  cd function_approximation/
-  980  git status
-  981  ls
-  982  ./train_and_test_saddle_function.py --lr 0.01 --epochs 1000
-  983  ls
-  984  ./train_and_test_saddle_function.py --lr 0.01 --epochs 1000 --build_fn nonlinear
-  985  roslaunch shutter_behavior_cloning collect_data.launch save_state_actions:=True
-  986  cd ../shutter_behavior_cloning/
-  987  ls
-  988  ls data/
-  989  vim data/state_action.txt 
-  990  roslaunch shutter_behavior_cloning collect_data.launch save_state_actions:=True
-  991  ls scripts/
-  992  python scripts/learn_policy.py 
-  993  python scripts/learn_policy.py data/state_action.txt 
-  994  python scripts/learn_policy.py 'data/state_action.txt'
-  995  python scripts/learn_policy.py data/state_action.txt 
+  974  cd hw_4
+  975  git remote get-url zoo
+  976  git remote add zoo
+  977  cd .git/hooks/
+  978  ls
+  979  ssh zoo
+  980  sudo apt upgrade zoom
+  981  ls > a > a
+  982  ls > a > b
+  983  ssh zoo
+  984  top
+  985  ssh zoo
+  986  rosrun tf2_tools view_frames.py
+  987  sudo apt install ros-melodic-tf2-tools 
+  988  reset
+  989  rosrun tf2_tools view_frames.py
+  990  ls
+  991  cd ~/catkin_ws/
+  992  ls
+  993  cd src
+  994  ls
+  995  cd cpsc459-assignments/
   996  ls
-  997  rostest shutter_behavior_cloning test_policy.launch model:='shutter_cloning.h5'
-  998  ls scripts/
-  999  ls
- 1000  ls logs/
+  997  cd assignment-3
+  998  ls
+  999  rosrun tf2_tools view_frames.py [B
+ 1000  rosrun tf tf_echo camera_link camera_color_optical_frame
  1001  ls
- 1002  ls launch/
- 1003  ls scripts/
- 1004  ls test/
- 1005  ./test/test_policy.py 
- 1006  rostest shutter_behavior_cloning test_policy.launch model:='shutter_cloning.h5'
- 1007  ls
- 1008  ls src/
- 1009  vi src/run_policy.py 
- 1010  rostest shutter_behavior_cloning test_policy.launch model:='shutter_cloning.h5'
+ 1002  cd Academics/CPSC_459/cpsc459-assignments/
+ 1003  git status
+ 1004  git pull
+ 1005  git pull upstream
+ 1006  git pull upstream master
+ 1007  git status
+ 1008  git push
+ 1009  ls
+ 1010  cd assignment-3
  1011  ls
- 1012  rostest shutter_behavior_cloning test_policy.launch model:='./shutter_cloning.h5'
- 1013  rostest shutter_behavior_cloning test_policy.launch model:=.
- 1014  rostest shutter_behavior_cloning test_policy.launch model:=shutter_cloning.h5 
- 1015  rostest shutter_behavior_cloning test_policy.launch model:=/home/alew/catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/shutter_cloning.h5 
- 1016  cd ..
- 1017  git status
- 1018  git add shutter_behavior_cloning/scripts/learn_policy.py 
- 1019  git commit -m "added initial imitation learning model"
- 1020  git add shutter_behavior_cloning/src/run_policy.py 
- 1021  git commit -m "completed run policy node to run model"
- 1022  ls shutter_behavior_cloning/
- 1023  ls shutter_behavior_cloning/scripts/learn_policy.py 
- 1024  ./shutter_behavior_cloning/scripts/learn_policy.py 
- 1025  sudo chmod 755 ./shutter_behavior_cloning/scripts/learn_policy.py 
- 1026  ./shutter_behavior_cloning/scripts/learn_policy.py 
- 1027  ./shutter_behavior_cloning/scripts/learn_policy.py shutter_behavior_cloning/data/state_action.txt 
- 1028  rostest shutter_behavior_cloning test_policy.launch model:=/home/alew/catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/shutter_cloning.h5 
- 1029  rostest shutter_behavior_cloning test_policy.launch model:=/home/alew/catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/shutter_cloning.h5 
- 1030  git status
- 1031  git add shutter_behavior_cloning/scripts/learn_policy.py 
- 1032  git commit -m "finalized behavior cloning model"
- 1033  git push origin
- 1034  cd shutter_behavior_cloning/scripts/
- 1035  ls
- 1036  python
- 1037  ls
- 1038  file keras_model 
- 1039  file shutter_cloning.h5 
- 1040  ls
- 1041  rm keras_model 
- 1042  ls
- 1043  git status
- 1044  git add train_utils.py 
- 1045  git commit -m "updated Model URL for behavior cloning"
- 1046  git push origin
- 1047  cd ../../
- 1048  ls
- 1049  cd function_approximation/
- 1050  ls
- 1051  ./train_and_test_saddle_function.py --help
- 1052  ./train_and_test_saddle_function.py --batch_size 32 --epochs 1400 --lr 0.1 --build_fn nonlinear
- 1053  ./train_and_test_saddle_function.py --batch_size 32 --epochs 1400 --lr 0.01 --build_fn nonlinear
- 1054  ./train_and_test_saddle_function.py --batch_size 4 --epochs 1400 --lr 0.01 --build_fn nonlinear
- 1055  ./train_and_test_saddle_function.py --batch_size 128 --epochs 1400 --lr 0.01 --build_fn nonlinear
- 1056  ./train_and_test_saddle_function.py --batch_size 128 --epochs 2400 --lr 0.01 --build_fn nonlinear
- 1057  ./train_and_test_saddle_function.py --batch_size 256 --epochs 2400 --lr 0.01 --build_fn nonlinear
- 1058  ./train_and_test_saddle_function.py --batch_size 128 --epochs 6400 --lr 0.01 --build_fn nonlinear
- 1059  ./train_and_test_saddle_function.py --batch_size 512 --epochs 1400 --lr 0.04 --build_fn nonlinear
- 1060  ./train_and_test_saddle_function.py --batch_size 512 --epochs 700 --lr 0.05 --build_fn nonlinear
- 1061  ./train_and_test_saddle_function.py --batch_size 16 --epochs 700 --lr 0.05 --build_fn nonlinear
- 1062  ./train_and_test_saddle_function.py --batch_size 16 --epochs 700 --lr 0.01 --build_fn nonlinear
- 1063  ./train_and_test_saddle_function.py --batch_size 64 --epochs 1700 --lr 0.01 --build_fn nonlinear
- 1064  ls Downloads/
- 1065  ls Downloads/logs/
- 1066  history | grep board
- 1067  history | grep tensor
- 1068  tensorboard --logdir Downloads/logs/log_11-10-2020-16-38/
- 1069  tensorboard --logdir Downloads/logs/log_11-10-2020-17-01/
- 1070  tensorboard --logdir Downloads/logs/log_11-10-2020-17-10/
- 1071  tensorboard --logdir Downloads/logs/log_11-10-2020-17-35/
- 1072  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-10-2020-21-35
- 1073  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/logs/log_11-11-2020-00-33/
- 1074  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/logs/log_11-11-2020-00-44/
- 1075  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/logs/log_11-11-2020-00-52/
- 1076  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/logs/log_11-11-2020-01-04/
- 1077  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/logs/log_11-11-2020-01-12/
- 1078  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/shutter_behavior_cloning/scripts/logs/log_11-11-2020-01-24/
- 1079  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-08-57/
- 1080  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-08-59/
- 1081  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-04/
- 1082  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-06/
- 1083  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-08/
- 1084  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-14/
- 1085  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-17/
- 1086  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-18/
- 1087  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-19/
- 1088  tensorboard --logdir catkin_ws/src/cpsc559-assignments/assignment-5/function_approximation/logs/log_11-11-2020-09-22/
- 1089  jupyter --version
- 1090  sudo apt install jupyter-core
- 1091  jupyter --version
- 1092  ls
- 1093  cd Downloads/
- 1094  ls
- 1095  jupyter --nbconvert --to pdf HW6-Tutorial-TF.ipynb 
- 1096  sudo apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
- 1097  jupyter --nbconvert --to pdf HW6-Tutorial-TF.ipynb 
- 1098  jupyter --nbconvert --to pdf ./HW6-Tutorial-TF.ipynb 
- 1099  jupyter --nbconvert --to pdf ~/Downloads/HW6-Tutorial-TF.ipynb 
- 1100  sudo apt install pandoc
- 1101  jupyter --nbconvert --to pdf ~/Downloads/HW6-Tutorial-TF.ipynb 
- 1102  jupyter nbconvert HW6-Tutorial-TF.ipynb --to pdf
- 1103  pip install nbconvert
- 1104  pip3 install nbconvert
- 1105  jupyter nbconvert HW6-Tutorial-TF.ipynb --to pdf
- 1106  ls
- 1107  evince HW6-Tutorial-TF.pdf 
- 1108  python3
- 1109  sudo apt update
- 1110  sudo apt upgrade
- 1111  python3
- 1112  cd Downloads/ && ls
- 1113  sh Miniconda3-latest-Linux-x86_64.sh -b
- 1114  ~/miniconda3/bin/conda init
- 1115  conda create --name d2l python=3.8 -y
- 1116  mkdir d2l-en && cd d2l-en
- 1117  curl https://d2l.ai/d2l-en.zip -o d2l-en.zip
- 1118  conda activate d2l
- 1119  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+ 1012  roslaunch shutter_bringup 
+ 1013  roslaunch shutter_bringup shutter_sim.launch 
+ 1014  bluetootctl
+ 1015  bluetoothctl
+ 1016  subl Music/music_dl/music_list.txt 
+ 1017  ssh zoo
+ 1018  ssh oo
+ 1019  ssh zoo
+ 1020  python
+ 1021  ssh zoo
+ 1022  man expor
+ 1023  man export
+ 1024  $ALPHA
+ 1025  export $ALPHA -n
+ 1026  ssh zoo
+ 1027  cd src/cpsc459-assignments/assignment-5/
+ 1028  ls
+ 1029  cd function_approximation/
+ 1030  ./train_and_test_saddle_function.py --visualize-training-data
+ 1031  ./train_and_test_saddle_function.py --visualize_training_data
+ 1032  tensorboard --logdir logs/log_11-08-2020-14-03/
+ 1033  ./train_and_test_saddle_function.py --load_model logs/log_11-08-2020-14-03/best_monkey_weights.h5
+ 1034  ./train_and_test_saddle_function.py --visualize_training_data
+ 1035  ./train_and_test_saddle_function.py --visualize_training_data --build_fn "nonlinear"
+ 1036  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear
+ 1037  ./train_and_test_saddle_function.py --visualize_training_data --build_fn "nonlinear"
+ 1038  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200
+ 1039  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 1.0
+ 1040  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.5
+ 1041  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.3
+ 1042  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.1
+ 1043  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.05
+ 1044  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.03
+ 1045  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 400 --lr 0.05
+ 1046  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.05
+ 1047  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.04
+ 1048  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.07
+ 1049  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 200 --lr 0.07 --batch_size 48
+ 1050  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 48
+ 1051  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 1000 --lr 0.07 --batch_size 128
+ 1052  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1053  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 32
+ 1054  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 80
+ 1055  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 100
+ 1056  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1057  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.08 --batch_size 100
+ 1058  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.06 --batch_size 100
+ 1059  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 100
+ 1060  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 80
+ 1061  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1062  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 1000 --lr 0.07 --batch_size 64
+ 1063  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 400 --lr 0.07 --batch_size 64
+ 1064  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1065  rm ./logs/*
+ 1066  rm -r ./logs/*
+ 1067  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1068  rm logs/
+ 1069  rm logs/ -r
+ 1070  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1071  tensorboard --logdir logs/log_11-08-2020-14-56/
+ 1072  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 -0-lr 0.07 --batch_size 64
+ 1073  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 6000 --lr 0.07 --batch_size 64
+ 1074  tensorboard --logdir logs/log_11-08-2020-14-59/
+ 1075  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 6000 --lr 0.07 --batch_size 64
+ 1076  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1077  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.072 --batch_size 64
+ 1078  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1079  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.072 --batch_size 64
+ 1080  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.069 --batch_size 64
+ 1081  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 64
+ 1082  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 800 --lr 0.07 --batch_size 64
+ 1083  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1084  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 256
+ 1085  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 800 --lr 0.07 --batch_size 128
+ 1086  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 800 --lr 0.07 --batch_size 160
+ 1087  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.071 --batch_size 64
+ 1088  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1089  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 4
+ 1090  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1091  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 140
+ 1092  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size100
+ 1093  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 100
+ 1094  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size100
+ 1095  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1096  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 500 --lr 0.07 --batch_size 128
+ 1097  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 700 --lr 0.07 --batch_size 128
+ 1098  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 501 --lr 0.07 --batch_size 128
+ 1099  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 499 --lr 0.07 --batch_size 128
+ 1100  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 500 --lr 0.07 --batch_size 128
+ 1101  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 601 --lr 0.07 --batch_size 128
+ 1102  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 599 --lr 0.07 --batch_size 128
+ 1103  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.07 --batch_size 128
+ 1104  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.071 --batch_size 128
+ 1105  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.075 --batch_size 128
+ 1106  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 900 --lr 0.075 --batch_size 128
+ 1107  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.085 --batch_size 128
+ 1108  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.08 --batch_size 128
+ 1109  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 700 --lr 0.075 --batch_size 128
+ 1110  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.075 --batch_size 128
+ 1111  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.075 --batch_size 140
+ 1112  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.075 --batch_size 120
+ 1113  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 2000 --lr 0.075 --batch_size 128
+ 1114  ./train_and_test_saddle_function.py --visualize_training_data --build_fn nonlinear --epochs 600 --lr 0.075 --batch_size 128
+ 1115  tensorboard logs/log_11-08-2020-15-42/
+ 1116  tensorboard --log_file logs/log_11-08-2020-15-42/
+ 1117  tensorboard --logdir logs/log_11-08-2020-15-42/
+ 1118  python
+ 1119  cd shutter_behavior_cloning/
  1120  ls
- 1121  sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
- 1122  sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
- 1123  sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
- 1124  sudo apt updae
- 1125  sudo apt update
- 1126  apt list --upgradable
- 1127  sudo apt upgrade
- 1128  sudo apt -y install cuda
- 1129  nvcc --version 
- 1130  cat /usr/local/cuda/version.txt
- 1131  sudo apt install nvidia-cuda-toolkit
- 1132  nvcc --version 
- 1133  pip install mxnet-cu91==1.7.0
- 1134  pip3 install mxnet-cu91==1.7.0
- 1135  pip3 install mxnet-cu91
- 1136  python
- 1137  pip3 install mxnet-cu91==1.7.0
- 1138  nvcc --version
- 1139  sudo apt update
- 1140  pip3 update
- 1141  pip3 install --update pip
- 1142  pip3 install pip --update
- 1143  sudo apt install cuda
- 1144  pip3 uninstall mxnet-cu91==1.7.0
- 1145  sudo apt autoremove
- 1146  pip3 uninstall mxnet
- 1147  pip3 install mxnet-cu111==1.7.0
- 1148  sudo apt install qbittorrent
- 1149  python
- 1150  pip3 install mxnet-cu111==1.7.0
- 1151  sudo apt remove cuda
- 1152  sudo apt autoremove
- 1153  sudo apt install cuda=10.2
- 1154  apt-cache policy cuda
- 1155  sudo apt install cuda=10.2.89-1
- 1156  pip install mxnet-cu102==1.7.0
- 1157  python3
- 1158  ls
- 1159  rm cpsc559.mp4 
- 1160  ls
- 1161  cd cpsc459-final-project-master/
- 1162  ls
- 1163  python
- 1164  python2
- 1165  pip install mido
- 1166  python2
- 1167  deactivate
- 1168  conda deactivate
- 1169  pip install mido
- 1170  python
- 1171  pip install playsound
- 1172  python
- 1173  cd ..
- 1174  git clone https://github.com/m-krusniak/cpsc459-final-project
- 1175  ls
- 1176  cd cpsc459-final-project
- 1177  ls
- 1178  vi process_midi.py
- 1179  conda deactivate
- 1180  ls
- 1181  cd cpsc459-final-project
- 1182  ls
- 1183  python
- 1184  ls data/
- 1185  python
+ 1121  cd scripts/
+ 1122  ls
+ 1123  python
+ 1124  git add .
+ 1125  git commit -m "Change file link"
+ 1126  git push
+ 1127  git add .
+ 1128  git commit -m "Assignment 5"
+ 1129  git add .
+ 1130  cd ../..
+ 1131  git add .
+ 1132  git status
+ 1133  git commit -m "Assignment 5"
+ 1134  git push
+ 1135  shh zoo
+ 1136  ssh zoo
+ 1137  sudo apt update zoom
+ 1138  sudo apt install zoom
+ 1139  sudo apt install ./zoom_amd64.deb
+ 1140  cd Downloads/
+ 1141  sudo apt install ./zoom_amd64.deb
+ 1142  ls
+ 1143  ssh zoo
+ 1144  top
+ 1145  xkill
+ 1146  cd Work/STC/yale-rideshare-backend/
+ 1147  ls
+ 1148  git status
+ 1149  git fetch
+ 1150  git status
+ 1151  rails s
+ 1152  rails db:init
+ 1153  rails db:create
+ 1154  rails --help
+ 1155  rails db:create
+ 1156  rails db:migrate
+ 1157  rails s
+ 1158  rains c
+ 1159  rails c
+ 1160  rails s
+ 1161  rails c
+ 1162  rails s
+ 1163  git add .
+ 1164  git commit -m "Add ride match endpoint"
+ 1165  git status
+ 1166  git push
+ 1167  pip install mido
+ 1168  ls
+ 1169  cd trash:///rosinstall_generator-0.1.16.egg-info
+ 1170  cd trash://
+ 1171  mkdir test
+ 1172  cd test
+ 1173  rm -r ../test
+ 1174  cd .
+ 1175  cd ..
+ 1176  mkdir test
+ 1177  mkdir test/test
+ 1178  cd test/test
+ 1179  rm -r ..
+ 1180  rm -r ../test/
+ 1181  pwd
+ 1182  cd ..
+ 1183  mkdir test
+ 1184  mkdir test/test
+ 1185  cd test/test/
  1186  ls
- 1187  python
- 1188  ls
- 1189  python inference_machine.py
- 1190  python inference_machine.py 'data/rock1/' 3
- 1191  python
- 1192  python inference_machine.py 'data/rock1/' 5
- 1193  python
- 1194  python inference_machine.py 'data/rock1/' 5
- 1195  python
- 1196  python inference_machine.py 'data/rock1/' 5
- 1197  python
- 1198  python inference_machine.py 'data/rock1/' 5
- 1199  python inference_machine.py 'data/rock1/' 1
- 1200  python
- 1201  ls
- 1202  rm inference_machine.pyc 
- 1203  python inference_machine.py 'data/rock1/' 2
- 1204  python
- 1205  python inference_machine.py 'data/rock1/' 2
- 1206  python
- 1207  python inference_machine.py 'data/rock1/' 2
- 1208  python
- 1209  python inference_machine.py 'data/rock1/' 2
- 1210  python
- 1211  python inference_machine.py 'data/rock1/' 2
- 1212  python
- 1213  python inference_machine.py 'data/rock1/' 2
- 1214  ls
- 1215  ls logs/
- 1216  ls
- 1217  ls examine/
- 1218  python inference_machine.py 'data/rock1/' 2
- 1219  ls logs/
- 1220  python inference_machine.py 'data/rock1/' 2
- 1221  python inference_machine.py 'data/rock1/' 4
- 1222  python inference_machine.py 'data/rock1/' 10
- 1223  python inference_machine.py 'data/rock1/' 10 4
- 1224  python inference_machine.py 'data/rock1/' 5 4
- 1225  ls
- 1226  file filter_fn.h5 
- 1227  python
+ 1187  rm ../../test/
+ 1188  rm -r ../../test/
+ 1189  cd ..
+ 1190  rm test
+ 1191  rm test -r
+ 1192  cd Work/STC/yale-rideshare
+ 1193  expo start
+ 1194  ls
+ 1195  git status
+ 1196  git checkout 3-create-login-landing-page 
+ 1197  git stash
+ 1198  git checkout 3-create-login-landing-page 
+ 1199  expo start
+ 1200  npm install
+ 1201  yarn install
+ 1202  expo start
+ 1203  cd ../yale-rideshare-backend/
+ 1204  ls
+ 1205  git status
+ 1206  git checkout 5-meta-create-basic-models 
+ 1207  git fetch
+ 1208  git pull
+ 1209  git status
+ 1210  rails g migration add_user_id_to_rides user_id:references
+ 1211  rails db:migrate
+ 1212  rails g migration add_user_id_to_rides user:references
+ 1213  rails db:migrate
+ 1214  git status
+ 1215  git add .
+ 1216  git commit -m "Add association between Ride and User"
+ 1217  git status
+ 1218  git push 
+ 1219  rails s
+ 1220  rails c
+ 1221  rails s
+ 1222  sudo apt install webstorm
+ 1223  snap install webstorm
+ 1224  snap install webstorm --classic
+ 1225  rspec
+ 1226  cd ../yale-rideshare-backend/
+ 1227  rspec
  1228  git status
- 1229  git add process_midi.py
- 1230  git commit -m 'fixed drum parameter default'
- 1231  git status
- 1232  git pull
- 1233  git status
- 1234  git add inference_machine.py 
- 1235  git commit -m 'added inference machine dagger training'
- 1236  git status
- 1237  git push
- 1238  git pull
- 1239  conda deactivate
- 1240  cd cpsc459-final-project/
- 1241  ls
- 1242  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_8.midi filter_fn.h5 
- 1243  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_5.midi filter_fn.h5 
- 1244  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1245  python evaluate_inference_machine_filter.py 'data/rock1/202_rock-halftime_140_beat_4-4_1.midi' filter_fn.h5 
- 1246  git status
- 1247  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi
- 1248  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi 
- 1249  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1250  python inference_machine.py 'data/rock1/' 2 2
- 1251  ls -l filter_fn.h5 
- 1252  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1253  python inference_machine.py 'data/rock1/' 2 1
- 1254  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1255  python inference_machine.py 'data/rock1/' 2 1
- 1256  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1257  python inference_machine.py 'data/rock1/' 2 5
- 1258  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1259  python inference_machine.py 'data/rock1/' 2 5
- 1260  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1261  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_7.midi filter_fn.h5 
- 1262  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_8.midi filter_fn.h5 
- 1263  python
- 1264  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_8.midi filter_fn.h5 
- 1265  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_45.midi filter_fn.h5 
- 1266  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1267  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_8.midi filter_fn.h5 
- 1268  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_48.midi filter_fn.h5 
- 1269  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_49.midi filter_fn.h5 
- 1270  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_51.midi filter_fn.h5 
- 1271  python
- 1272  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1273  python
- 1274  python inference_machine.py 'data/rock1/' 4 8
- 1275  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1276  python inference_machine.py 'data/rock1/' 4 4
- 1277  python inference_machine.py 'data/rock1/' 12 3
- 1278  python inference_machine.py 'data/rock1/' 2 2
- 1279  python inference_machine.py 'data/rock1/' 12 3
- 1280  python inference_machine.py 'data/rock1/' 4 3
- 1281  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1282  ls
- 1283  rm filter_fn.h5 
- 1284  python inference_machine.py 'data/rock1/' 2 2
- 1285  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1286  python inference_machine.py 'data/rock1/' 2 2
- 1287  git status
- 1288  git add inference_machine.py 
- 1289  git add evaluate_inference_machine_filter.py 
- 1290  git commit -m "<dirty> commit with inference machine evaluation started"
- 1291  git push
- 1292  python inference_machine.py 'data/rock1/' 2 2
- 1293  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1294  git status
- 1295  git add inference_machine.py 
- 1296  git commit -m "reverting output dimension"
- 1297  git push
- 1298  python inference_machine.py 'data/rock1/' 2 4
- 1299  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1300  python inference_machine.py 'data/rock1/' 6 2
- 1301  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1302  git status
- 1303  git add evaluate_inference_machine_filter.py 
- 1304  git commit -m "added live metrics"
- 1305  git push
- 1306  git add evaluate_inference_machine_filter.py 
- 1307  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1308  python inference_machine.py 'data/rock1/' 2 2
- 1309  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1310  python inference_machine.py 'data/rock1/' 4 4 
- 1311  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1312  python inference_machine.py 'data/rock1/' 2 2
- 1313  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1314  git status
- 1315  git branch alex
- 1316  git status
- 1317  git checkout alex
- 1318  git status
- 1319  git add evaluate_inference_machine_filter.py 
- 1320  git add inference_machine.py 
- 1321  git commit -m "dirty commit"
- 1322  git status
- 1323  git pull
- 1324  git checkout inference-machine-crossentropy
- 1325  rm process_midi.py
- 1326  git checkout inference-machine-crossentropy
- 1327  rm process_midi.pyc 
- 1328  mv filter_fn.h5 ff.h5
- 1329  git checkout inference-machine-crossentropy
- 1330  python evaluate_inference_machine_filter.py data/rock1/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1331  ls
- 1332  ls data
- 1333  python evaluate_inference_machine_filter.py data/rock/202_rock-halftime_140_beat_4-4_44.midi filter_fn.h5 
- 1334* python evaluate_inference_machine_filter.py data/rock/202_rock-halftime_140_beat_4-4_.midi filter_fn.h5 
- 1335  python evaluate_inference_machine_filter.py data/rock/202_rock-halftime_140_beat_4-4_1.midi filter_fn.h5 
- 1336  ls data/rock/
- 1337  python evaluate_inference_machine_filter.py data/rock/181_rock_115_beat_4-4_10.midi filter_fn.h5 
- 1338  git status
- 1339  git pull
- 1340  python evaluate_inference_machine_filter.py data/rock/181_rock_115_beat_4-4_10.midi filter_fn.h5 
- 1341* ls data/f
- 1342  ls data/funk/
- 1343  ls data/funk/82_neworleans-funk_84_beat_4-4_1.midi filter_fn.h5 
- 1344  python evaluate_inference_machine_filter.py data/funk/82_neworleans-funk_84_beat_4-4_1.midi filter_fn.h5 
- 1345  python inference_machine.py 'data/rock/' 1 1
- 1346  python evaluate_inference_machine_filter.py data/funk/82_neworleans-funk_84_beat_4-4_1.midi filter_fn.h5 
- 1347  python inference_machine.py 'data/rock/' 1 1
- 1348  python evaluate_inference_machine_filter.py data/funk/82_neworleans-funk_84_beat_4-4_1.midi filter_fn.h5 
- 1349  ls data/
- 1350  ls data/rock/
- 1351  python evaluate_inference_machine_filter.py data/rock/ 4 4
- 1352* python inference_machine.py 'data/rock/'
- 1353  python evaluate_inference_machine_filter.py data/funk/82_neworleans-funk_84_beat_4-4_1.midi filter_fn.h5 
- 1354  python evaluate_inference_machine_filter.py data/rock/ 4 8
- 1355  data
- 1356  datals
- 1357  ls data
- 1358  cd ..
- 1359  cd cpsc459-final-project/
- 1360  history > cmd.history
+ 1229  git add .
+ 1230  git commit -m "Add user email to endpoint response"
+ 1231  git push
+ 1232  bluetoothctl
+ 1233  cd ~/Downloads/
+ 1234  java -jar OptiFine_1.16.4_HD_U_G5.jar 
+ 1235  cd Downloads/
+ 1236  ls
+ 1237  file Drehmal\ v2.1\ PRIMORDIAL.zip 
+ 1238  unzip Drehmal\ v2.1\ PRIMORDIAL.zip 
+ 1239  sudo rm -rf ~/.local/share/Trash/*
+ 1240  java -jar Downloads/forge-1.16.4-35.1.0-installer.jar 
+ 1241  java -jar Downloads/forge-1.16.4-35.1.3-installer.jar 
+ 1242  python
+ 1243  cd Academics/CPSC_459/final-project/
+ 1244  ls
+ 1245  git add .
+ 1246  git commit -m "Add break work"
+ 1247  git push
+ 1248  git push --set-upstream origin master
+ 1249  xkill
+ 1250  ls &> test
+ 1251  ls
+ 1252  sudo chmod 777 /dev/kvm
+ 1253  cd Academics/S\&DS_230/final_project/
+ 1254  git init
+ 1255  git remote add git@github.com:m-krusniak/mo_mask_mandate.git
+ 1256  git remote add origin git@github.com:m-krusniak/mo_mask_mandate.git
+ 1257  git add .
+ 1258  git status
+ 1259  git commit -m "Add CSV"
+ 1260  git push
+ 1261  git push --set-upstream origin master
+ 1262  git add .
+ 1263  git commit -m "Update CSV headesr"
+ 1264  git commit --amend
+ 1265  git push
+ 1266  git status
+ 1267  git push
+ 1268  git status
+ 1269  git add .
+ 1270  git commit -m "Add population density"
+ 1271  git status
+ 1272  git add .
+ 1273  git commit -m "Add county areas""
+ 1274  git commit -m "Add county areas"
+ 1275  git push
+ 1276  cd ~
+ 1277  ls
+ 1278  cp final_project.Rmd final_project_backup.Rmd
+ 1279  cd Academics/S\&DS_230/final_project/
+ 1280  git add .
+ 1281  git commit -m "Repair some county names"
+ 1282  git push
+ 1283  ssh zoo
+ 1284  cat log_output.txt 
+ 1285  chmod standards_analysis.py 
+ 1286  chmod 777 standards_analysis.py 
+ 1287  ./standards_analysis.py 
+ 1288  ./standards_analysis.py data/genre/train/rock/ data/standard/ 
+ 1289  mkdir output_standards
+ 1290  ./standards_analysis.py data/genre/train/rock/ data/standard/ output_standards/
+ 1291  ./generate_midi.py data/genre/train/rock/ data/standard/ output_standards/
+ 1292  ls
+ 1293  history
+ 1294  history > cmd.history 

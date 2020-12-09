@@ -27,7 +27,7 @@ def generate(train_dir, predict_dir, output_dir, drum):
     (ff_pred, ff_tp, ff_fn, ff_fp, ff_n_total) = evaluate(ff_model, test_data, test_targs)
 
     save_song(output_dir + "/im_pred__" + filename, im_pred)
-    save_song(output_dir + "/ff_pred__" + filename, im_pred)
+    save_song(output_dir + "/ff_pred__" + filename, ff_pred)
 
 
 if __name__ == '__main__':
