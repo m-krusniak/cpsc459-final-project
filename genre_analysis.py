@@ -3,7 +3,6 @@
 import argparse
 from process_midi import *
 from save_midi import *
-from nn_model import *
 import tensorflow as tf
 from InferenceMachine import InferenceMachine
 from FeedForward import FeedForward

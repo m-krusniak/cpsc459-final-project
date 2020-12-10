@@ -3,10 +3,7 @@
 import argparse
 from process_midi import *
 from save_midi import *
-from nn_model import *
 import tensorflow as tf
-import evaluate_inference_machine_filter as eimf
-import inference_machine
 from InferenceMachine import InferenceMachine
 from FeedForward import FeedForward
 
