@@ -95,3 +95,13 @@ Additionally, we developed a set of seven rhythms from simple to complex in orde
 * Standard 5: A repeated pattern with no downbeat
 * Standard 6: "Double Beat", a realistic warm-up with few repititions
 * Standard 7: A simple rock beat with different instruments.
+
+
+## Summary of Contributions
+
+### Alex Lew
+Because I wasn’t familiar with MIDI, I spent a lot of time learning how to interpret and interact with our dataset. Additionally, I began implementation of the inference machine filter, starting with our own DAgger implementation. Implementation of the inference machine architecture entailed both verifying the data pipeline (a collaborative endeavour) as well as implemented the DAgger training as described in our report. This component was finished after the milestone report After the presentation feedback, I began implementing a random forest classifier that wasn’t finished for the final report. I wrote the initial inference machine evaluation script. 
+
+I also refined our assumptions written in the introduction, and summarized the related work (though these were collaborative, of course!) for the milestone report. I wrote the inference machine sections for our technical approach, as well as the miscellaneous discussion and future work sections for the final report. I also contributed to the evaluation of standard rhythms and genre testing.
+
+For the video, I edited the transitions, music/audio components and made the final video encoding.
