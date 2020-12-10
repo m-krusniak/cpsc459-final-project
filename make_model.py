@@ -33,8 +33,9 @@ if __name__ == '__main__':
   parser.add_argument('model_type', help="type of model: one of im_mlp, im_rf, or ff", type=str)
   parser.add_argument('train_dir', help="path of folder containing training MIDI data", type=str)
   parser.add_argument('model_file', help="location at which to save the trained model", type=str)
+  parser.add_argument('--drum', help="MIDI drum number", type=int, default=36)
   args = parser.parse_args()
 
-  if args.model_type == "ff": make_ff(args.train_dir, args.model_file, 36)
-  if args.model_type == "im_mlp": make_im(args.train_dir, args.model_file, 36, 'MLP')
-  if args.model_type == "im_rf": make_im(args.train_dir, args.model_file, 36, 'RF')
+  if args.model_type == "ff": make_ff(args.train_dir, args.model_file, args.drum)
+  if args.model_type == "im_mlp": make_im(args.train_dir, args.model_file, args.drum, 'MLP')
+  if args.model_type == "im_rf": make_im(args.train_dir, args.model_file, args.drum, 'RF')

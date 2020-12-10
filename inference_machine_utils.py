@@ -58,8 +58,8 @@ def train_mlp_dagger(model, trajectories, dagger_n=50):
 
     # Initialize model
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001),
-                  loss='binary_crossentropy',
-                  metrics=['binary_accuracy'])
+                  loss='mae',
+                  metrics=['mse'])
 
     # Initialize predicted belief
     belief = np.ones((31,))
@@ -77,7 +77,7 @@ def train_mlp_dagger(model, trajectories, dagger_n=50):
 
                 # combine previous belief with current observation
                 # predict belief
-                filter_input = np.append(tau[1][t], prev_belief, axis=0)
+                filter_input = np.append(tau[1][t][0], prev_belief, axis=0)
                 filter_input = np.expand_dims(filter_input, axis=0)
                 inference = model.predict(filter_input)
                 belief = inference[0] # we're only predicting one sample
@@ -112,7 +112,7 @@ def train_forest_dagger(trajectories, dagger_n=50):
 
     # Initialize predicted belief
     belief = np.ones((31,))
-    belief_init = np.append(belief, np.array(1.0))
+    belief_init = np.append(belief, np.array(0.0))
     belief_init = np.expand_dims(belief_init, axis=0)
 
     target_init = np.ones((1,31))
@@ -131,7 +131,7 @@ def train_forest_dagger(trajectories, dagger_n=50):
 
                 # combine previous belief with current observation
                 # predict belief
-                filter_input = np.append(tau[1][t], prev_belief, axis=0)
+                filter_input = np.append(tau[1][t][0], prev_belief, axis=0)
                 filter_input = np.expand_dims(filter_input, axis=0)
                 inference = forest.predict(filter_input)
                 belief = inference[0] # we're only predicting one sample

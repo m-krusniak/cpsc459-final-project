@@ -23,10 +23,9 @@ def print_results(genre_name, model_name, tp, fn, fp, total, output_dir):
     log.write("  ERROR: All outputs were zero.\n\n")
     return
 
-  if tp + fn == 0: 
-    log.write("  ERROR: No true positives or false negatives.\n\n")
+  if tp == 0:
+    log.write("  ERROR: No true positives.\n\n")
     return
-
 
   precision = tp / float(tp + fp)
   recall = tp / float(tp + fn)
@@ -61,6 +60,9 @@ def analyze_ff(genres_dir, output_dir, drum):
       (test_data, test_targs) = load_song(test_dir+filename, memory_length=16, drum=drum)
       test_data = np.reshape(test_data, (len(test_data), 63))
       test_targs = np.reshape(test_targs, (len(test_targs), 1))
+
+      # An invalid test song (e.g., wrong time signature) will return empty data
+      if len(test_targs) == 0 or len(test_data) == 0: continue
 
       (pred, tp, fn, fp, n_total) = model.evaluate(test_data, test_targs)
 
@@ -109,8 +111,9 @@ if __name__ == '__main__':
   parser.add_argument('model_type', help="type of model: one of im_mlp, im_rf, or ff", type=str)
   parser.add_argument('genres_dir', help="path of folder containing train/ and test/, each containing a folder for each genre", type=str)
   parser.add_argument('output_dir', help="path of folder in which to place models and output log", type=str)
+  parser.add_argument('--drum', help="MIDI drum number", type=int, default=36)
   args = parser.parse_args()
 
-  if args.model_type == "ff": analyze_ff(args.genres_dir, args.output_dir, 36)
-  if args.model_type == "im_mlp": analyze_im(args.genres_dir, args.output_dir, 36, 'MLP')
-  if args.model_type == "im_rf": analyze_im(args.genres_dir, args.output_dir, 36, 'RF')
+  if args.model_type == "ff": analyze_ff(args.genres_dir, args.output_dir, args.drum)
+  if args.model_type == "im_mlp": analyze_im(args.genres_dir, args.output_dir, args.drum, 'MLP')
+  if args.model_type == "im_rf": analyze_im(args.genres_dir, args.output_dir, args.drum, 'RF')

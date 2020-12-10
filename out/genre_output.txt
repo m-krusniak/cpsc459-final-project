@@ -1,0 +1,40 @@
+
+
+RESULTS FOR GENRE 'rock' AND MODEL 'inference-machine-MLP'
+Total tests: 7610
+False positive: 3
+False negative: 278
+True positive: 1521
+7329 correct out of 7610 total (96.307 accuracy)
+  Precision: 0.998    Recall: 0.845    F1 score: 0.915
+  Skew: 76.360% of targets are 0
+
+
+RESULTS FOR GENRE 'latin' AND MODEL 'inference-machine-MLP'
+Total tests: 10096
+False positive: 1433
+False negative: 292
+True positive: 2036
+8371 correct out of 10096 total (82.914 accuracy)
+  Precision: 0.587    Recall: 0.875    F1 score: 0.702
+  Skew: 76.941% of targets are 0
+
+
+RESULTS FOR GENRE 'funk' AND MODEL 'inference-machine-MLP'
+Total tests: 15750
+False positive: 4886
+False negative: 451
+True positive: 3051
+10413 correct out of 15750 total (66.114 accuracy)
+  Precision: 0.384    Recall: 0.871    F1 score: 0.533
+  Skew: 77.765% of targets are 0
+
+
+RESULTS FOR GENRE 'jazz' AND MODEL 'inference-machine-MLP'
+Total tests: 20138
+False positive: 6915
+False negative: 455
+True positive: 3367
+12768 correct out of 20138 total (63.403 accuracy)
+  Precision: 0.327    Recall: 0.881    F1 score: 0.477
+  Skew: 81.021% of targets are 0

@@ -26,7 +26,11 @@ def generate_ff(model_file, predict_dir, output_dir, drum):
 
   # Test all songs in test directory
   for filename in os.listdir(predict_dir):
-    (test_data, test_targs) = load_song(predict_dir+filename, memory_length=16, drum=drum)
+    (test_data, test_targs) = load_song(predict_dir+"/"+filename, memory_length=16, drum=drum)
+
+    # An invalid test song (e.g., wrong time signature) will return empty data
+    if len(test_targs) == 0 or len(test_data) == 0: continue
+    
     test_data = np.reshape(test_data, (len(test_data), 63))
     test_targs = np.reshape(test_targs, (len(test_targs), 1))
 
@@ -49,8 +53,9 @@ if __name__ == '__main__':
   parser.add_argument('model_file', help="h5 file in which model is stored")
   parser.add_argument('input_dir', help="path of folder containing MIDI file from which to predict", type=str)
   parser.add_argument('output_dir', help="path of folder into which to place predictions", type=str)
+  parser.add_argument('--drum', help="MIDI drum number", type=int, default=36)
   args = parser.parse_args()
 
-  if args.model_type == "im_mlp": generate_im_mlp(args.model_file, args.input_dir, args.output_dir, 36)
-  if args.model_type == "im_rf": generate_im_rf(args.model_file, args.input_dir, args.output_dir, 36)
-  if args.model_type == "ff": generate_ff(args.model_file, args.input_dir, args.output_dir, 36)
+  if args.model_type == "im_mlp": generate_im_mlp(args.model_file, args.input_dir, args.output_dir, args.drum)
+  if args.model_type == "im_rf": generate_im_rf(args.model_file, args.input_dir, args.output_dir, args.drum)
+  if args.model_type == "ff": generate_ff(args.model_file, args.input_dir, args.output_dir, args.drum)

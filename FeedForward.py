@@ -43,7 +43,7 @@ class FeedForward:
                                                               save_freq=1)
 
     # do training for the specified number of epochs and with the given batch size
-    model.fit(train_data, train_targs, epochs=1, batch_size=4,
+    model.fit(train_data, train_targs, epochs=6, batch_size=4,
               validation_data=(val_data, val_targs),
               callbacks=[tbCallBack, checkpointCallBack])
 
@@ -52,9 +52,10 @@ class FeedForward:
   def evaluate(self, test_data, test_targs):
     model = self.model
 
+    test_data = np.reshape(test_data, (len(test_data), 63))
+    test_targs = np.reshape(test_targs, (len(test_targs), 1))
+
     # evaluate
-    print test_data.shape()
-    test_data = np.reshape(test_data, (len(test_data)))
     predicted_targs = model.predict(test_data, batch_size=4)
     predicted_targs = [1 if a > 0.2 else 0 for a in predicted_targs]
 

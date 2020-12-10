@@ -48,8 +48,8 @@ class InferenceMachine:
         predicted_negatives = []
 
         for t in range(0,len(trajectory[1])-1):
-            action = trajectory[1][t]
-            next_action = trajectory[1][t+1]
+            action = trajectory[1][t][0]
+            next_action = trajectory[1][t+1][0]
             prev_belief = belief
 
             # prediction step - get next belief
@@ -91,12 +91,16 @@ class InferenceMachine:
             prev_belief = belief
 
             # then predict the next window, given the previous belief and the next target
-            filter_input = np.append(prev_belief, [action], axis=0)
+            filter_input = np.append(prev_belief, action, axis=0)
             filter_input = np.expand_dims(filter_input, axis=0)
             inference = self.model.predict(filter_input)
             belief = inference[0]
 
             predicted_targs += [1 if belief[1] > self.thresh else 0]
+            # print "True: %d | Predicted: %d (%.3f)" % (next_action, 1 if belief[1] > self.thresh else 0, belief[1])
+
+        obs = np.append([[0]], obs)
+        predicted_targs = np.append(predicted_targs, [[0]])
 
         n_correct = 0
         n_total = 0
@@ -104,6 +108,7 @@ class InferenceMachine:
         fn = 0
         fp = 0
         for p in zip(obs, predicted_targs):
+            print str(p)
             if p[0] == 1 and p[1] == 1: tp += 1
             if p[0] == 1 and p[1] == 0: fn += 1
             if p[0] == 0 and p[1] == 1: fp += 1
@@ -116,8 +121,9 @@ class InferenceMachine:
         if self.learner == "RF":
             file = open(filename, 'w+')
             pickle.dump(self.model, file)
-        if self.learner == "MLP":
+        elif self.learner == "MLP":
             self.model.save(filename)
+        else: print "ERROR: Model type not specified"
 
         file2 = open(filename + ".meta", 'w+')
         pickle.dump((self.thresh, self.drum), file2)
@@ -127,9 +133,11 @@ class InferenceMachine:
         if self.learner == "RF":
             file = open(filename)
             self.model = pickle.load(file)
-        if self.learner == "MLP":
+        elif self.learner == "MLP":
             self.model = tf.keras.models.load_model(filename, compile=True)
+        else: print "ERROR: Model type not specified"
 
         file2 = open(filename + ".meta")
         (self.thresh, self.drum) = pickle.load(file2)
+        print "LOADED MODEL WITH THRESHOLD " + str(self.thresh)
         

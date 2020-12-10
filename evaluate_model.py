@@ -36,7 +36,7 @@ def print_results(tp, fn, fp, total):
   print "  Skew: %.3f%% of targets are 0" % ((1 - float(pos)/total) * 100)
 
 
-def evaluate_im(model_file, predict_file, drum, model_type):
+def evaluate_im(model_file, predict_file, model_type, drum):
   model = InferenceMachine(model_type, drum)
   model.load(model_file)
   (pred, tp, fn, fp, n_total) = model.evaluate(predict_file)
@@ -49,6 +49,7 @@ def evaluate_ff(model_file, predict_file, drum):
   model.load(model_file)
 
   (test_data, test_targs) = load_song(predict_file, memory_length=16, drum=drum)
+
   test_data = np.reshape(test_data, (len(test_data), 63))
   test_targs = np.reshape(test_targs, (len(test_targs), 1))
 
@@ -62,8 +63,9 @@ if __name__ == '__main__':
   parser.add_argument('model_type', help="type of model: one of im_mlp, im_rf, or ff", type=str)
   parser.add_argument('model_file', help="h5 file in which model is stored")
   parser.add_argument('input_file', help="path of a file to predict", type=str)
+  parser.add_argument('--drum', help="MIDI drum number", type=int, default=36)
   args = parser.parse_args()
 
-  if args.model_type == "im_mlp": evaluate_im(args.model_file, args.input_file, "MLP", 36)
-  if args.model_type == "im_rf": evaluate_im(args.model_file, args.input_file, "RF", 36)
-  if args.model_type == "ff": evaluate_ff(args.model_file, args.input_file, 36)
+  if args.model_type == "im_mlp": evaluate_im(args.model_file, args.input_file, "MLP", args.drum)
+  if args.model_type == "im_rf": evaluate_im(args.model_file, args.input_file, "RF", args.drum)
+  if args.model_type == "ff": evaluate_ff(args.model_file, args.input_file, args.drum)
