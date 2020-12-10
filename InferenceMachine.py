@@ -63,6 +63,9 @@ class InferenceMachine:
             else:
                 predicted_negatives.append(belief[1])
 
+        if len(predicted_positives) == 0: return (1, 0)
+        if len(predicted_negatives) == 0: return (0, 1)
+
         positive_mean =  sum(predicted_positives) / float(len(predicted_positives))
         negative_mean = sum(predicted_negatives) / float(len(predicted_negatives))
         # determine mean of predictions
@@ -108,6 +111,7 @@ class InferenceMachine:
 
         return (predicted_targs, tp, fn, fp, n_total)
 
+    
     def export(self, filename):
         if self.learner == "RF":
             file = open(filename, 'w+')
@@ -115,9 +119,17 @@ class InferenceMachine:
         if self.learner == "MLP":
             self.model.save(filename)
 
+        file2 = open(filename + ".meta", 'w+')
+        pickle.dump((self.thresh, self.drum), file2)
+
+
     def load(self, filename):
         if self.learner == "RF":
             file = open(filename)
-            pickle.load(file)
+            self.model = pickle.load(file)
         if self.learner == "MLP":
             self.model = tf.keras.models.load_model(filename, compile=True)
+
+        file2 = open(filename + ".meta")
+        (self.thresh, self.drum) = pickle.load(file2)
+        
