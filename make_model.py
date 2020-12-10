@@ -23,7 +23,7 @@ def make_im(train_dir, model_file, drum, machine_type):
   # Train up the inference machine
   model = InferenceMachine(machine_type, drum=drum)
   n = len(os.listdir(train_dir))
-  model.train(train_dir, n, 1)
+  model.train(train_dir, n, 4)
   model.export(model_file)
 
 
